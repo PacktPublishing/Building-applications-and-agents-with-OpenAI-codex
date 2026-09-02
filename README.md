@@ -50,16 +50,16 @@ uv sync --frozen
 The browser realtime example in Lab 05 also requires Node.js and npm.
 See its reference README for setup.
 
-## Status
+## Labs
 
-| Lab | Title | Reference solution status | Primary course purpose |
-|---|---|---:|---|
-| 00 | Codex Workflow | Built | Learn how to drive Codex before building agents |
-| 01 | Agents SDK Sampler | Built | Touch the core SDK primitives in small examples |
-| 02 | Handoffs Patterns | Built | Compare handoffs and agents-as-tools |
-| 03 | SandboxAgent Sampler | Built | Show workspace, shell, skills, memory, and resumption |
-| 04 | SQL Analyzer Agent | Built | First full business reference solution |
-| 05 | Realtime Voice Agent | Built | Compare Python voice pipelines with browser realtime sessions |
+| Lab | Title | Primary course purpose |
+|---|---|---|
+| 00 | Codex Workflow | Learn how to drive Codex before building agents |
+| 01 | Agents SDK Sampler | Touch the core SDK primitives in small examples |
+| 02 | Handoffs Patterns | Compare handoffs and agents-as-tools |
+| 03 | SandboxAgent Sampler | Show workspace, shell, skills, memory, and resumption |
+| 04 | SQL Analyzer Agent | First full business reference solution |
+| 05 | Realtime Voice Agent | Compare Python voice pipelines with browser realtime sessions |
 
 ## Reproducible Prompts
 
