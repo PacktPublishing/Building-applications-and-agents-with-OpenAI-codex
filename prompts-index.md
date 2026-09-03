@@ -11,6 +11,8 @@ reference implementations.
 | 03 | `lab-03-sandboxagent-sampler/prompt-pack.md` |
 | 04 | `lab-04-sql-analyzer/prompt-pack.md` |
 | 05 | `lab-05-realtime-voice-agent/prompt-pack.md` |
+| 07 | [OpenAI Vector Store](lab-07-vector-store/prompt-pack.md) |
+| 08 | [CSV to Diagram with Code Interpreter](lab-08-code-interpreter/prompt-pack.md) |
 
 Prompt packs are part of the lab deliverable. When a reference solution is
 rebuilt, record prompt IDs and verification in that lab's `BUILD-LOG.md`.

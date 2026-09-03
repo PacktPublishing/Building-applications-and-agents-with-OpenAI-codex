@@ -93,3 +93,42 @@ npm run dev
 ```
 
 Open the HTTPS Vite URL and start the realtime session in the browser.
+
+## Lab 07
+
+From the repository root, using the existing synced environment:
+
+```bash
+.venv/bin/python lab-07-vector-store/reference-solution/run_reference.py ingest
+.venv/bin/python lab-07-vector-store/reference-solution/run_reference.py search "Can I return unopened coffee after 10 days?"
+.venv/bin/python lab-07-vector-store/reference-solution/run_reference.py ask "Can I return unopened coffee after 10 days, and when do next-day orders close?"
+.venv/bin/python lab-07-vector-store/reference-solution/run_reference.py cleanup
+```
+
+Run each command in order. Without a key, each skips without changing resources.
+With a key, ingestion creates a vector store and uploads the bundled fictional
+policies. Search and ask reuse that store; cleanup removes it and the original
+uploads. See the [vector store runbook](lab-07-vector-store/reference-solution/README.md)
+for standalone setup, filters, state recovery, and guided exercises.
+
+## Lab 08
+
+From the repository root, using the existing synced environment:
+
+```bash
+.venv/bin/python lab-08-code-interpreter/reference-solution/run_reference.py run
+```
+
+The runner uploads the bundled synthetic sales CSV and uses hosted Code
+Interpreter to create a monthly revenue PNG diagram and totals CSV. It prints
+their download paths under a fresh run folder and cleans up the remote container
+and original upload. Without an API key, it skips without creating a chart.
+
+For another compatible synthetic CSV:
+
+```bash
+.venv/bin/python lab-08-code-interpreter/reference-solution/run_reference.py run --csv /absolute/path/to/sales.csv
+```
+
+See the [Code Interpreter runbook](lab-08-code-interpreter/reference-solution/README.md)
+for schema, setup, generated artifact inspection, and cleanup recovery.

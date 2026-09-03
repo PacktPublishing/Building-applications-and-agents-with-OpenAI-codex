@@ -1,0 +1,37 @@
+month,category,orders,revenue_eur
+2025-01,Grocery,120,2640.00
+2025-01,Household,60,900.00
+2025-01,Personal care,40,480.00
+2025-02,Grocery,110,2420.00
+2025-02,Household,55,825.00
+2025-02,Personal care,36,432.00
+2025-03,Grocery,140,3080.00
+2025-03,Household,70,1050.00
+2025-03,Personal care,46,552.00
+2025-04,Grocery,150,3300.00
+2025-04,Household,75,1125.00
+2025-04,Personal care,50,600.00
+2025-05,Grocery,170,3740.00
+2025-05,Household,85,1275.00
+2025-05,Personal care,56,672.00
+2025-06,Grocery,165,3630.00
+2025-06,Household,82,1230.00
+2025-06,Personal care,55,660.00
+2025-07,Grocery,155,3410.00
+2025-07,Household,77,1155.00
+2025-07,Personal care,51,612.00
+2025-08,Grocery,175,3850.00
+2025-08,Household,87,1305.00
+2025-08,Personal care,58,696.00
+2025-09,Grocery,180,3960.00
+2025-09,Household,90,1350.00
+2025-09,Personal care,60,720.00
+2025-10,Grocery,195,4290.00
+2025-10,Household,97,1455.00
+2025-10,Personal care,65,780.00
+2025-11,Grocery,220,4840.00
+2025-11,Household,110,1650.00
+2025-11,Personal care,73,876.00
+2025-12,Grocery,260,5720.00
+2025-12,Household,130,1950.00
+2025-12,Personal care,86,1032.00

@@ -10,7 +10,9 @@ It intentionally contains reusable context, not finished reference solutions.
 - `.agents/skills/openai-agents-sdk/openai-agents-python/`: submodule pointing
   to the official `openai/openai-agents-python` repository for examples, tests,
   and docs.
-- `labs/*/prompt-pack.md`: prompt packs for Labs 01-05.
+- `labs/*/prompt-pack.md`: prompt packs for Labs 01-05 and 07-08.
+- [Lab 07 vector store prompt pack](labs/lab-07-vector-store/prompt-pack.md): document ingestion, hosted search, citations, and cleanup after Lab 01.
+- [Lab 08 Code Interpreter prompt pack](labs/lab-08-code-interpreter/prompt-pack.md): a synthetic CSV becomes a downloadable diagram through hosted Python execution.
 
 ## SDK Submodule
 
