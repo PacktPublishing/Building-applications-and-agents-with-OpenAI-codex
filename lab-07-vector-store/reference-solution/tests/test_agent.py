@@ -53,11 +53,8 @@ class AgentContractTests(unittest.TestCase):
         self.assertEqual(tool.filters, {"type": "eq", "key": "category", "value": "returns"})
         self.assertEqual(agent.model_settings.tool_choice, "required")
 
-    def test_model_override_and_sdk_default(self):
-        with patch.dict(os.environ, {"OPENAI_MODEL": "test-model"}):
-            self.assertEqual(app.build_agent("vs_test").model, "test-model")
-        with patch.dict(os.environ, {}, clear=True):
-            self.assertIsNone(app.build_agent("vs_test").model)
+    def test_agent_uses_gpt_6_luna(self):
+        self.assertEqual(app.build_agent("vs_test").model, "gpt-6-luna")
 
     def test_invalid_filters_and_result_limits_are_rejected(self):
         for count in (0, 11):

@@ -32,7 +32,7 @@ def build_agent(
         raise ValueError("max_results must be between 1 and 10 for this lab.")
     return Agent(
         name="northstar_knowledge_assistant",
-        model=os.environ.get("OPENAI_MODEL", "").strip() or None,
+        model="gpt-6-luna",
         instructions=(
             "Answer questions about the fictional Northstar Market. Search the supplied "
             "knowledge base before answering. Use only facts supported by retrieved "

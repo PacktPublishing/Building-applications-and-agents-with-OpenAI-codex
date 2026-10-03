@@ -3,27 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lab 05 Realtime Agent</title>
+    <meta name="theme-color" content="#f5f4ef" />
+    <title>Lab 05 · Browser Realtime Voice Agent</title>
   </head>
   <body>
-    <main class="app">
-      <section class="panel">
-        <h1>Realtime Course Assistant</h1>
-        <p>
-          Browser speech-to-speech with the OpenAI Agents SDK
-          <code>RealtimeAgent</code> and <code>RealtimeSession</code>.
-        </p>
-        <div class="actions">
-          <button id="connect" type="button">Start realtime session</button>
-          <button id="disconnect" type="button" disabled>Stop</button>
+    <main class="shell">
+      <p class="eyebrow">LAB 05 · JAVASCRIPT REALTIME</p>
+      <h1>Talk to the voice agent</h1>
+      <p class="intro">A live speech-to-speech session runs over WebRTC. Your API key stays on the token server.</p>
+      <div class="controls">
+        <button id="start" type="button">Start session</button>
+        <button id="stop" type="button" disabled>Stop session</button>
+      </div>
+      <form id="text-form">
+        <label for="message">Optional text message</label>
+        <div class="message-row">
+          <input id="message" name="message" autocomplete="off" placeholder="Type a message…" disabled />
+          <button id="send" type="submit" disabled>Send</button>
         </div>
-        <label>
-          Text event
-          <input id="textPrompt" value="What is the difference between VoicePipeline and RealtimeSession?" />
-        </label>
-        <button id="sendText" type="button" disabled>Send text event</button>
-        <pre id="status">Idle</pre>
+      </form>
+      <section aria-labelledby="status-heading">
+        <h2 id="status-heading">Session log</h2>
+        <ol id="log" aria-live="polite"></ol>
       </section>
+      <p class="footnote">Grant microphone access when prompted. Stop the session to close its microphone and WebRTC connection.</p>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>

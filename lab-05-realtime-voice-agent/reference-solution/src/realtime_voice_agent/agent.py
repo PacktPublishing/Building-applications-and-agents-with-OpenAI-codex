@@ -1,80 +1,40 @@
-from __future__ import annotations
+"""Direct Agents SDK agent and deterministic lab lookup tool."""
 
-from dataclasses import dataclass
+import re
 
 from agents import Agent, function_tool
 
-from .config import DEFAULT_MODEL
 
-
-@dataclass(frozen=True)
-class VoiceLabAnswer:
-    topic: str
-    answer: str
-    source: str
-
-
-_ANSWERS: dict[str, VoiceLabAnswer] = {
-    "voicepipeline": VoiceLabAnswer(
-        topic="voicepipeline",
-        answer=(
-            "Use VoicePipeline when you want explicit control over speech-to-text, "
-            "the agent run, and text-to-speech."
-        ),
-        source="OpenAI voice agents guide",
-    ),
-    "traces": VoiceLabAnswer(
-        topic="traces",
-        answer=(
-            "Inspect the run in the OpenAI traces dashboard; voice traces can include "
-            "the transcript, tool calls, and audio playback when tracing is enabled."
-        ),
-        source="OpenAI Agents SDK voice examples",
-    ),
-    "tools": VoiceLabAnswer(
-        topic="tools",
-        answer=(
-            "Voice agents use normal Agents SDK tools. Keep function tool names "
-            "limited to lowercase letters, digits, and underscores."
-        ),
-        source="course SDK skill",
-    ),
+_LAB_ANSWERS = {
+    "voicepipeline": "VoicePipeline chains speech-to-text, an agent workflow, and text-to-speech.",
+    "traces": "Workflow traces help inspect and debug voice-agent runs.",
+    "tools": "An Agents SDK function_tool lets an agent call deterministic application code.",
 }
 
 
-def normalize_topic(topic: str) -> str:
-    return topic.strip().lower().replace(" ", "_").replace("-", "_")
+@function_tool
+def lookup_lab_answer(topic: str) -> str:
+    """Look up a short, deterministic answer about a voice-agent lab topic."""
+    return lookup_answer(topic)
 
 
-def lookup_lab_answer_record(topic: str) -> VoiceLabAnswer:
-    key = normalize_topic(topic)
-    return _ANSWERS.get(
-        key,
-        VoiceLabAnswer(
-            topic=key or "unknown",
-            answer="No deterministic lab note is available for that topic.",
-            source="local fixture",
-        ),
+def lookup_answer(topic: str) -> str:
+    """Return a deterministic answer for a supported lab topic."""
+    normalized_topic = re.sub(r"[\s_-]+", "", topic.strip().lower())
+    return _LAB_ANSWERS.get(
+        normalized_topic,
+        "No lab answer is available for that topic. Try voicepipeline, traces, or tools.",
     )
 
 
-@function_tool(name_override="lookup_lab_answer")
-def lookup_lab_answer(topic: str) -> str:
-    """Return a deterministic lab note for a voice-agent course topic."""
-    record = lookup_lab_answer_record(topic)
-    return f"{record.answer} Source: {record.source}."
-
-
-def build_voice_agent(model: str = DEFAULT_MODEL) -> Agent:
+def build_voice_agent() -> Agent:
+    """Build the Lab 05 voice assistant as a real Agents SDK Agent."""
     return Agent(
         name="voice_course_assistant",
-        model=model,
         instructions=(
-            "You are a concise voice assistant for a course lab about the OpenAI "
-            "Agents SDK. Answer in one or two spoken-friendly sentences. Use the "
-            "lookup_lab_answer tool for questions about VoicePipeline, traces, or "
-            "tool naming. Do not claim to have used a microphone unless audio input "
-            "was actually provided by the pipeline."
+            "You are a concise assistant for a voice-agent course. "
+            "Use the lookup_lab_answer tool when asked about course lab topics."
         ),
+        model="gpt-6-luna",
         tools=[lookup_lab_answer],
     )

@@ -9,6 +9,9 @@ Set your OpenAI API key before running SDK labs:
 export OPENAI_API_KEY="sk-..."
 ```
 
+Agent and SandboxAgent examples use `gpt-6-luna` unless a lab documents a
+separate audio model for a speech-specific component.
+
 ## Lab 00
 
 ```bash
@@ -94,6 +97,19 @@ npm run dev
 
 Open the HTTPS Vite URL and start the realtime session in the browser.
 
+## Lab 06
+
+From the repository root, using the existing synced environment:
+
+```bash
+.venv/bin/python lab-06-repl/reference-solution/run_reference.py
+# After exiting, compare complete replies:
+.venv/bin/python lab-06-repl/reference-solution/run_reference.py --no-stream
+```
+
+See the [REPL runbook](lab-06-repl/reference-solution/README.md) for standalone
+setup and the manual conversation exercise.
+
 ## Lab 07
 
 From the repository root, using the existing synced environment:
@@ -132,3 +148,29 @@ For another compatible synthetic CSV:
 
 See the [Code Interpreter runbook](lab-08-code-interpreter/reference-solution/README.md)
 for schema, setup, generated artifact inspection, and cleanup recovery.
+
+## Chapter 10 Lab 10
+
+```bash
+cd chapter-10/openai-dashboard-monitoring/reference-solution
+uv pip install -r requirements.txt
+export OPENAI_API_KEY="sk-..."
+uv run python run_reference.py
+```
+
+The runner makes two requests through one local MCP server and prints each
+`final_output`. Find both traces under the shared group ID documented in the
+[lab README](chapter-10/openai-dashboard-monitoring/reference-solution/README.md).
+
+## Chapter 10 Lab 11
+
+```bash
+cd chapter-10/multi-agent-architecture-visualization/reference-solution
+uv venv
+uv pip install -r requirements.txt
+./.venv/bin/python export_diagram.py
+```
+
+This makes no API calls and writes `outputs/multi-agent-handoffs.png`. Install
+the native Graphviz executable first; see the
+[lab README](chapter-10/multi-agent-architecture-visualization/reference-solution/README.md).

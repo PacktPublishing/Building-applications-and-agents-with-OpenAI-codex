@@ -167,7 +167,7 @@ Files API uploads. See [expiration policies](https://developers.openai.com/api/d
 |---|---|
 | Command prints `SKIP` | Supply a nonblank `OPENAI_API_KEY` to this shell. No live work occurred. |
 | Authentication or permission error | Check the key and API project's access. API error bodies are suppressed because they can contain credential fragments. |
-| Model unavailable or incompatible | Set `OPENAI_MODEL` to an accessible model supporting Responses file search. |
+| Model unavailable or incompatible | Confirm your API project can access `gpt-6-luna`, which supports Responses file search. |
 | Manifest already exists | Reuse it for search/ask, or run cleanup before a fresh ingest. |
 | Indexing fails, times out, or state is incomplete | Use the retained manifest to clean up, then retry ingest. |
 | Store expired or was removed | Run cleanup to remove remaining uploads, then ingest again. |

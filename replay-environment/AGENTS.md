@@ -113,3 +113,17 @@ Lab 04:
 - Generate SQL without semicolons and repair semicolon-only validation failures
   by validating again before execution.
 
+Chapter 10 Lab 10:
+
+- Use one direct SDK `Agent` connected to a local stdio MCP server that exposes
+  deterministic mock weather and public pool schedule tools.
+- Reuse one `RunConfig.group_id` across related runs and include workflow name
+  and trace metadata to demonstrate dashboard trace grouping.
+- Clearly label all fixture responses as mock data.
+
+Chapter 10 Lab 11:
+
+- Use `openai-agents[viz]` and `agents.extensions.visualization.draw_graph` to
+  export a diagram of real SDK Agent handoffs as a PNG.
+- Use a three-agent chain with exactly two handoff edges. Static rendering and
+  tests should not call the model API.

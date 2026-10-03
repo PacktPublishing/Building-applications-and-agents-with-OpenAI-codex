@@ -39,18 +39,15 @@ class RunnerTests(unittest.IsolatedAsyncioTestCase):
         self.enterContext(contextlib.redirect_stderr(self.output))
 
     async def test_agent_and_config_keep_sdk_objects_visible(self):
-        with patch.dict(os.environ, {"OPENAI_MODEL": "test-model"}):
-            agent = app.build_agent("cntr_test")
+        agent = app.build_agent("cntr_test")
         self.assertIsInstance(agent, Agent)
-        self.assertEqual(agent.model, "test-model")
+        self.assertEqual(agent.model, "gpt-6-luna")
         self.assertEqual(len(agent.tools), 1)
         self.assertIsInstance(agent.tools[0], CodeInterpreterTool)
         self.assertEqual(agent.tools[0].tool_config,
                          {"type": "code_interpreter", "container": "cntr_test"})
         self.assertEqual(agent.model_settings.tool_choice, "required")
         self.assertIn("code_interpreter_call.outputs", agent.model_settings.response_include)
-        with patch.dict(os.environ, {}, clear=True):
-            self.assertIsNone(app.build_agent("cntr_test").model)
         async with AsyncOpenAI(api_key="dummy-offline") as client:
             config = app.build_run_config(client)
             self.assertIsInstance(config, RunConfig)

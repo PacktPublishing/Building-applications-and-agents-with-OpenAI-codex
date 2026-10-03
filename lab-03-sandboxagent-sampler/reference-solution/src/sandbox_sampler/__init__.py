@@ -1,2 +1,0 @@
-"""SandboxAgent sampler reference package."""
-

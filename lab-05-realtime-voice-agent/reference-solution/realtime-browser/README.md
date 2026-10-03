@@ -1,76 +1,56 @@
-# Realtime Browser Agent
+# Browser Realtime voice agent
 
-This is the true realtime variant of Lab 05. It is intentionally separate from
-the Python `VoicePipeline` example.
+This is a sibling JavaScript implementation of Lab 05. It uses the TypeScript
+Agents SDK `RealtimeAgent` and `RealtimeSession` to keep a live WebRTC session
+open; the model handles the speech-to-speech conversation directly. This is a
+different architecture from the Python `VoicePipeline`, which chains
+transcription, a text-agent workflow, and speech generation. They are
+alternative paths, not layers in one runtime.
 
-Use this path when the application should feel conversational and immediate:
-browser microphone input, WebRTC transport, barge-in, low first-audio latency,
-and live audio output.
+## Run locally
 
-## Architecture
+Use Node.js 20 or newer. From this directory:
 
-- Browser: OpenAI Agents SDK `RealtimeAgent` and `RealtimeSession`.
-- Server: trusted Node/Express endpoint that mints a realtime client secret.
-- Transport: WebRTC handled by the SDK session.
-- Model: `gpt-realtime-2`.
-
-The standard OpenAI API key must stay on the server. The browser receives only a
-short-lived realtime client secret from `/token`.
-
-## Run Local Tests
-
-```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-05-realtime-voice-agent/reference-solution/realtime-browser
+```sh
 npm install
-npm test
-npm run typecheck
+cp .env.example .env
 ```
 
-Tests construct SDK realtime objects and validate token request configuration
-without calling OpenAI.
+Set `OPENAI_API_KEY` in `.env`. Run the trusted token server in one terminal:
 
-## Run The Realtime Demo
-
-Terminal 1:
-
-```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-05-realtime-voice-agent/reference-solution/realtime-browser
-export OPENAI_API_KEY='sk-...'
-npm run server
+```sh
+npm run start:server
 ```
 
-Terminal 2:
+Run the browser app in another terminal:
 
-```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-05-realtime-voice-agent/reference-solution/realtime-browser
+```sh
 npm run dev
 ```
 
-Open the HTTPS Vite URL printed by `npm run dev`, usually
-`https://127.0.0.1:5173`. Browser microphone access generally requires HTTPS or
-localhost.
+Open the `http://localhost:5173` URL printed by Vite and click **Start
+session**. Browsers treat localhost as a secure context for microphone access,
+so local HTTPS certificates are not needed. Microphone permission is requested
+when the session starts. The browser calls the local `/token` endpoint and
+receives only an ephemeral client secret; the standard API key stays in the
+Node server.
 
-Click **Start realtime session**, allow microphone access, and speak. You should
-hear the model respond through the browser audio output.
+## Runtime events
 
-The status panel should show useful checkpoints such as:
+The status panel logs completed user transcripts, completed assistant audio
+transcripts, audio start/stop, turn completion, interruptions, and errors. It
+ignores empty user transcripts, buffers assistant transcript deltas until a
+completed transcript arrives, and does not add duplicate assistant text from
+agent lifecycle events or noisy `history_updated` snapshots. Realtime output
+is configured with audio modality only; transcript events remain available for
+captions.
 
-- `You said: ...`
-- `Assistant audio started.`
-- `Assistant said: ...`
-- `Realtime turn complete.`
+## Checks
 
-## Why This Is Not The Python VoicePipeline
+```sh
+npm test
+npm run typecheck
+npm run build
+```
 
-The Python solution is a chained workflow: speech-to-text, text agent run, then
-text-to-speech. This realtime solution keeps a live session open and lets the
-model handle the audio conversation directly through `RealtimeSession`.
-
-## Official References
-
-- Voice agents guide:
-  <https://developers.openai.com/api/docs/guides/voice-agents>
-- Realtime and audio guide:
-  <https://developers.openai.com/api/docs/guides/realtime>
-- Realtime WebRTC guide:
-  <https://developers.openai.com/api/docs/guides/realtime-webrtc>
+All tests run locally and do not call the OpenAI API.

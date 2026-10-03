@@ -1,5 +1,6 @@
-# Sandbox Memory
+# Durable repository memory
 
-- The calculator repo expects divide-by-zero to raise `ZeroDivisionError`, not
-  return a sentinel value.
-
+- Repo convention: the calculator source is `calculator.py`, tests live in
+  `tests/`, and the local verification command is
+  `python -m unittest discover -s tests` (run it from `repo`).
+- Prefer the smallest fix that addresses a reproduced failure.

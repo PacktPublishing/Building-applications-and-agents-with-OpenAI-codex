@@ -55,3 +55,8 @@ Built on 2026-09-03 by following CI-01 through CI-04 in the lab prompt pack.
 - The synthetic CSV is included. No real Code Interpreter diagram was generated
   during this build; hosted execution and visual chart quality remain to be
   verified using the documented live command with credentials.
+
+## Model alignment update
+
+- Set the text Agent/SandboxAgent default to `gpt-6-luna`; retained specialized voice and transcription models where applicable.
+- Offline verification after the update: 19 passed, 1 skipped.

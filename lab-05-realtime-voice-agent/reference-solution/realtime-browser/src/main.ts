@@ -1,105 +1,84 @@
-import {
-  buildRealtimeAgent,
-  buildRealtimeSession,
-  connectRealtimeSession
-} from "./agent";
-import { formatTransportEvent } from "./event-log";
-import { extractClientSecret } from "./session-config";
-import "./styles.css";
+import "./style.css";
+import { createRealtimeSession, requestEphemeralSecret } from "./realtime";
 
-const connectButton = document.querySelector<HTMLButtonElement>("#connect");
-const disconnectButton = document.querySelector<HTMLButtonElement>("#disconnect");
-const sendTextButton = document.querySelector<HTMLButtonElement>("#sendText");
-const textPrompt = document.querySelector<HTMLInputElement>("#textPrompt");
-const status = document.querySelector<HTMLPreElement>("#status");
+const startButton = document.querySelector<HTMLButtonElement>("#start")!;
+const stopButton = document.querySelector<HTMLButtonElement>("#stop")!;
+const messageInput = document.querySelector<HTMLInputElement>("#message")!;
+const sendButton = document.querySelector<HTMLButtonElement>("#send")!;
+const form = document.querySelector<HTMLFormElement>("#text-form")!;
+const log = document.querySelector<HTMLOListElement>("#log")!;
 
-let session: ReturnType<typeof buildRealtimeSession> | null = null;
+let session: ReturnType<typeof createRealtimeSession> | null = null;
+let assistantTranscriptDraft = "";
 
-function log(message: string) {
-  if (!status) return;
-  status.textContent = `${new Date().toLocaleTimeString()} ${message}\n${status.textContent}`;
+function writeLog(message: string): void {
+  const item = document.createElement("li");
+  item.textContent = message;
+  log.append(item);
+  item.scrollIntoView({ block: "nearest" });
 }
 
-function setConnected(connected: boolean) {
-  if (connectButton) connectButton.disabled = connected;
-  if (disconnectButton) disconnectButton.disabled = !connected;
-  if (sendTextButton) sendTextButton.disabled = !connected;
+function setConnected(connected: boolean): void {
+  startButton.disabled = connected;
+  stopButton.disabled = !connected;
+  messageInput.disabled = !connected;
+  sendButton.disabled = !connected;
 }
 
-async function fetchClientSecret(): Promise<string> {
-  const response = await fetch("/token");
-  if (!response.ok) {
-    throw new Error(`Token endpoint failed with ${response.status}`);
-  }
-  return extractClientSecret(await response.json());
-}
-
-connectButton?.addEventListener("click", async () => {
+startButton.addEventListener("click", async () => {
+  startButton.disabled = true;
   try {
-    log("Requesting microphone permission and realtime client secret.");
-    const clientSecret = await fetchClientSecret();
-    session = buildRealtimeSession(buildRealtimeAgent());
-
-    const eventSource = session as unknown as {
-      on?: (event: string, listener: (...args: unknown[]) => void) => void;
-    };
-    eventSource.on?.("error", (event) => log(`error ${JSON.stringify(event)}`));
-    eventSource.on?.("agent_start", () => log("Agent started responding."));
-    eventSource.on?.("audio_start", () => log("Assistant audio started."));
-    eventSource.on?.("audio_stopped", () => log("Assistant audio stopped."));
-    eventSource.on?.("audio_interrupted", () => log("Assistant audio interrupted."));
-    eventSource.on?.("transport_event", (event) => {
-      const message = formatTransportEvent(event as Parameters<typeof formatTransportEvent>[0]);
-      if (message) log(message);
+    const permission = await navigator.mediaDevices.getUserMedia({ audio: true });
+    permission.getTracks().forEach((track) => track.stop());
+    writeLog("Requesting a secure realtime session…");
+    const clientSecret = await requestEphemeralSecret();
+    session = createRealtimeSession();
+    session.on("audio_start", () => writeLog("Assistant audio started"));
+    session.on("audio_stopped", () => writeLog("Assistant audio stopped"));
+    session.on("audio_interrupted", () => writeLog("Assistant audio interrupted"));
+    session.on("error", (error) => writeLog(`Realtime error: ${String(error)}`));
+    session.on("transport_event", (rawEvent) => {
+      const event = rawEvent as { type?: string; transcript?: string; delta?: string; error?: unknown };
+      if (event.type === "conversation.item.input_audio_transcription.completed") {
+        const transcript = event.transcript?.trim();
+        if (transcript) writeLog(`You said: ${transcript}`);
+      } else if (event.type === "response.output_audio_transcript.delta") {
+        assistantTranscriptDraft += event.delta ?? "";
+      } else if (event.type === "response.output_audio_transcript.done") {
+        const transcript = (event.transcript || assistantTranscriptDraft).trim();
+        assistantTranscriptDraft = "";
+        if (transcript) writeLog(`Assistant said: ${transcript}`);
+      } else if (event.type === "response.done") {
+        assistantTranscriptDraft = "";
+        writeLog("Realtime turn complete");
+      } else if (event.type === "error") {
+        writeLog(`Realtime transport error: ${String(event.error ?? "unknown error")}`);
+      }
     });
-
-    await connectRealtimeSession(session, clientSecret);
+    await session.connect({ apiKey: clientSecret });
     setConnected(true);
-    log("Connected. Speak into the browser microphone.");
+    writeLog("Realtime session connected. You can speak now.");
   } catch (error) {
-    log(error instanceof Error ? error.message : String(error));
+    session?.close();
+    session = null;
     setConnected(false);
+    writeLog(`Could not start session: ${error instanceof Error ? error.message : String(error)}`);
   }
 });
 
-disconnectButton?.addEventListener("click", () => {
-  const maybeClosable = session as unknown as {
-    close?: () => void;
-    disconnect?: () => void;
-  };
-  maybeClosable?.close?.();
-  maybeClosable?.disconnect?.();
+stopButton.addEventListener("click", () => {
+  session?.close();
   session = null;
+  assistantTranscriptDraft = "";
   setConnected(false);
-  log("Disconnected.");
+  writeLog("Realtime session stopped.");
 });
 
-sendTextButton?.addEventListener("click", () => {
-  if (!session || !textPrompt) return;
-  const maybeSend = session as unknown as {
-    sendMessage?: (message: string) => void;
-    send?: (event: unknown) => void;
-  };
-
-  if (maybeSend.sendMessage) {
-    maybeSend.sendMessage(textPrompt.value);
-    log(`Sent text prompt: ${textPrompt.value}`);
-    return;
-  }
-
-  maybeSend.send?.({
-    type: "conversation.item.create",
-    item: {
-      type: "message",
-      role: "user",
-      content: [
-        {
-          type: "input_text",
-          text: textPrompt.value
-        }
-      ]
-    }
-  });
-  maybeSend.send?.({ type: "response.create" });
-  log(`Sent text event: ${textPrompt.value}`);
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const message = messageInput.value.trim();
+  if (!message || !session) return;
+  session.sendMessage(message);
+  writeLog(`You typed: ${message}`);
+  messageInput.value = "";
 });

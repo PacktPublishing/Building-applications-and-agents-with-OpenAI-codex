@@ -14,3 +14,8 @@
 - `uv run --with pytest pytest -q`: 6 passed.
 - API-backed examples require `OPENAI_API_KEY`; local tests validate schemas,
   tools, guardrails, sessions, Agent construction, and RunConfig construction.
+
+## Model alignment update
+
+- Set the text Agent/SandboxAgent default to `gpt-6-luna`; retained specialized voice and transcription models where applicable.
+- Offline verification after the update: 6 passed, 1 skipped.

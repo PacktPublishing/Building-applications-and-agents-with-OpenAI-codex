@@ -1,5 +1,8 @@
 # Prompt Pack: Lab 08 — CSV to Diagram with Code Interpreter
 
+
+Default all SDK Agent/SandboxAgent model settings to `gpt-6-luna`. Keep modality-specific transcription, speech, and realtime audio model IDs unchanged.
+
 Run CI-01 through CI-04 in order in one Codex task. Use AGENTS.md, the
 openai-agents-sdk skill, its official SDK checkout, and the OpenAI Docs MCP.
 This pack is self-contained; a replay must not inspect reference solutions.
@@ -35,7 +38,7 @@ Create run_reference.py with run and cleanup subcommands. run accepts --csv,
 defaulting to data/sales.csv, and --output-dir, defaulting to outputs beside the
 script. Before constructing a client or creating output directories, missing
 or blank OPENAI_API_KEY must cause a successful SKIP; help works without a key.
-Use optional OPENAI_MODEL or the SDK default; do not invent or upgrade a model.
+Set the agent model explicitly to `gpt-6-luna`.
 Validate the CSV before remote changes. Create a fresh run-* subdirectory and
 resources.json with only version, uploaded_file_id, and container_id. Ignore
 outputs in git. Use direct AsyncOpenAI files.create(purpose='user_data'), then

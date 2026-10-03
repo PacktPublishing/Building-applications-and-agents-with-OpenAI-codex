@@ -28,7 +28,7 @@ DEFAULT_OUTPUT = Path(__file__).resolve().parent / "outputs"
 def build_agent(container_id: str) -> Agent:
     return Agent(
         name="sales_chart_analyst",
-        model=os.environ.get("OPENAI_MODEL", "").strip() or None,
+        model="gpt-6-luna",
         instructions=(
             "You analyze fictional Northstar Market sales. Always use the python tool "
             "to read the supplied CSV inside the container and perform the analysis. "

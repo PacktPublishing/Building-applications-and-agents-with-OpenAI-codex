@@ -1,65 +1,52 @@
-# SandboxAgent Sampler
+# Lab 03: SandboxAgent Sampler
 
-Reference solution for Lab 03.
+This lab uses the OpenAI Agents SDK `SandboxAgent` to inspect and repair a
+small calculator repository mounted into a Unix-local sandbox. The manifest
+mounts the calculator at relative path `repo` and seeded file memory at the
+sandbox root under `memories/`.
 
-This lab shows the SandboxAgent surfaces and configures the local Unix sandbox
-runtime through `RunConfig(..., sandbox=SandboxRunConfig(...))`:
+## Run the deterministic checks
 
-- workspace instructions with `AGENTS.md`
-- filesystem and shell capabilities
-- skill materialization
-- memory layout
-- UnixLocal `SandboxRunConfig`
-- resumption worksheet
-- memory smoke runner
-- exported workspaces under `artifacts/`
+From the repository root, use an environment with the OpenAI Agents SDK
+installed:
 
-The local tests instantiate the `SandboxAgent` and UnixLocal run config without
-making API calls. The actual `Runner.run(...)` demo requires `OPENAI_API_KEY`.
-
-## Run The Sandbox Demo
-
-```bash
-uv run python -m sandbox_sampler.run_sandbox_demo
+```sh
+python -m pytest replay-environment/solutions/lab-03-sandboxagent-sampler/tests
+python replay-environment/solutions/lab-03-sandboxagent-sampler/check_manifest.py
 ```
 
-The demo uses:
+The checks construct SDK objects and validate the relative manifest. They do
+not make model calls.
 
-- `SandboxAgent`
-- `RunConfig`
-- `SandboxRunConfig`
-- `UnixLocalSandboxClient`
-- `UnixLocalSandboxClientOptions`
+## Run the sandbox repair demo
 
-The demo creates an explicit live UnixLocal sandbox session, closes it so SDK
-memory generation can flush, exports the final workspace to
-`artifacts/latest-workspace`, then deletes the temporary UnixLocal workspace.
-It defaults to `--max-turns 20`; if the turn limit is reached, the demo still
-closes the sandbox, exports `artifacts/latest-workspace`, and deletes the
-temporary UnixLocal workspace so the final files and memory can be inspected.
+Set `OPENAI_API_KEY`, then run:
 
-Increase the turn budget for slower runs:
-
-```bash
-OPENAI_API_KEY=... uv run python -m sandbox_sampler.run_sandbox_demo --max-turns 30
+```sh
+python replay-environment/solutions/lab-03-sandboxagent-sampler/run_sandbox_demo.py
 ```
 
-Run without streaming:
+The streamed demo prints model and tool progress. It snapshots the Unix-local
+workspace, closes the session so SDK memory generation can flush, exports the
+workspace to `artifacts/latest-workspace/`, and then removes the temporary
+sandbox directory. Use `--no-stream` for the `Runner.run` path and
+`--max-turns` to change the turn limit.
 
-```bash
-OPENAI_API_KEY=... uv run python -m sandbox_sampler.run_sandbox_demo --no-stream --max-turns 30
+## Explore persistent memory
+
+`memory-resumption-worksheet.md` describes the two-run exercise. Run it with:
+
+```sh
+python replay-environment/solutions/lab-03-sandboxagent-sampler/run_memory_demo.py
 ```
 
-## Run The Memory Smoke Test
+It creates one snapshot for both runs and exports the final workspace to
+`artifacts/memory-demo-workspace/`. Inspect generated memory with:
 
-Use this when you only want to verify sandbox memory and skip the calculator
-debugging task:
-
-```bash
-OPENAI_API_KEY=... uv run python run_memory_smoke.py
-cat artifacts/memory-smoke-workspace/memories/MEMORY.md
-cat artifacts/memory-smoke-workspace/memories/memory_summary.md
+```sh
+find replay-environment/solutions/lab-03-sandboxagent-sampler/artifacts/memory-demo-workspace/memories -type f
+cat replay-environment/solutions/lab-03-sandboxagent-sampler/artifacts/memory-demo-workspace/memories/MEMORY.md
 ```
 
-The first run writes a short note to `memories/MEMORY.md`. The second run
-resumes the sandbox and reads the note back.
+Unix-local workspaces are temporary. The demos export them before deletion so
+their files can be inspected afterward.

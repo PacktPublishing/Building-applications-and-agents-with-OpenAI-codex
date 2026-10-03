@@ -1,5 +1,8 @@
 # Lab 05 Prompt Pack: Realtime Voice Agent
 
+
+Default all SDK Agent/SandboxAgent model settings to `gpt-6-luna`. Keep modality-specific transcription, speech, and realtime audio model IDs unchanged.
+
 Use this prompt pack to rebuild the Lab 05 reference solution from scratch in
 `lab-05-realtime-voice-agent/reference-solution/`.
 
@@ -220,8 +223,7 @@ Requirements:
   must receive only the ephemeral realtime client secret.
 - Include an `OpenAI-Safety-Identifier` header on the server-side client secret
   request.
-- Use HTTPS for the browser dev server, because microphone access requires
-  HTTPS or localhost.
+- For local development, serve the browser app over plain HTTP at http://localhost:5173. Browsers treat localhost as a secure context, so microphone access works there. Do not configure local HTTPS or add a self-signed certificate. Document the exact URL, and verify the page loads without certificate warnings.
 - Explain that this realtime app is not the Python `VoicePipeline`: it keeps a
   live WebRTC session open and the model handles the speech-to-speech
   conversation directly.
@@ -240,7 +242,7 @@ Verification:
 
 ## Prompt 7: Polish Realtime Browser Runtime Behavior
 
-Verify the live browser runtime behavior before sharing the lab.
+Verify the live browser runtime behavior.
 
 Requirements:
 

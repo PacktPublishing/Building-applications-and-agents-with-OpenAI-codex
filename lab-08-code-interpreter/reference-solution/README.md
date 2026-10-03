@@ -19,9 +19,7 @@ If you already ran the repository's `uv sync --frozen`, you can instead use
 `../../.venv/bin/python` wherever the commands below say `python`.
 
 Supply `OPENAI_API_KEY` through your environment or secret manager. The runner
-does not load `.env` automatically. `OPENAI_MODEL` optionally selects an
-accessible model supporting Responses Code Interpreter; otherwise the SDK's
-default model is used. No local pandas or matplotlib installation is required:
+does not load `.env` automatically. The agent explicitly uses `gpt-6-luna`, which supports Responses Code Interpreter. No local pandas or matplotlib installation is required:
 the model runs that analysis code in the hosted container.
 
 ## Generate the diagram

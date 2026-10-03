@@ -1,0 +1,17 @@
+:root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #17211d; background: #f5f4ef; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+.shell { max-width: 760px; margin: 7vh auto; padding: 40px; background: #fff; border: 1px solid #deded6; border-radius: 20px; box-shadow: 0 18px 60px #17211d0c; }
+.eyebrow { color: #4c7563; font-size: .75rem; font-weight: 750; letter-spacing: .12em; }
+h1 { margin: 12px 0; font-size: clamp(2rem, 6vw, 3.3rem); letter-spacing: -.045em; }
+.intro, .footnote { color: #58635d; line-height: 1.6; }
+.controls, .message-row { display: flex; gap: 12px; margin: 24px 0; }
+button { border: 0; border-radius: 9px; padding: 12px 18px; background: #1e5946; color: white; font: inherit; font-weight: 650; cursor: pointer; }
+button:disabled, input:disabled { opacity: .48; cursor: not-allowed; }
+button#stop { color: #1e5946; background: #e4eee8; }
+label, h2 { font-size: .9rem; font-weight: 700; }
+input { flex: 1; min-width: 0; border: 1px solid #c9cec9; border-radius: 9px; padding: 12px; font: inherit; }
+ol { min-height: 130px; max-height: 340px; overflow: auto; padding: 14px 14px 14px 38px; background: #f8f9f6; border-radius: 12px; }
+li { padding: 5px 0; line-height: 1.45; }
+.footnote { font-size: .82rem; }
+@media (max-width: 600px) { .shell { margin: 0; min-height: 100vh; padding: 26px 20px; border-radius: 0; } }

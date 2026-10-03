@@ -20,8 +20,8 @@ in the commands below with `../../.venv/bin/python`; no separate install is
 needed with the existing locked workspace environment.
 
 Supply `OPENAI_API_KEY` through your environment or secret manager. The demo
-does not load `.env` automatically. Set `OPENAI_MODEL` to override the SDK's
-default model with a model available to your project that supports file search.
+does not load `.env` automatically. The agent explicitly uses `gpt-6-luna`,
+which supports file search.
 The runner uses the Responses API through the SDK's `OpenAIProvider`.
 
 ## Run the lab

@@ -13,3 +13,8 @@
 
 - `uv run --with pytest pytest -q`: 5 passed.
 - Tests validate real SDK handoffs, agents-as-tools, scenarios, and RunConfig.
+
+## Model alignment update
+
+- Set the text Agent/SandboxAgent default to `gpt-6-luna`; retained specialized voice and transcription models where applicable.
+- Offline verification after the update: 6 passed, 2 skipped.

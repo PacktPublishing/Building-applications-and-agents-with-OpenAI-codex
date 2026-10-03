@@ -155,7 +155,7 @@ container is deleted or expires.
 |---|---|
 | `SKIP` and no chart | Set a nonblank `OPENAI_API_KEY` in this shell; no hosted execution occurred. |
 | Invalid CSV | Use the documented schema, ISO months, numeric orders/revenue, and UTF-8 encoding. |
-| Authentication/model error | Check project access and `OPENAI_MODEL`; API error bodies are suppressed to avoid echoing key fragments. |
+| Authentication/model error | Check project access to `gpt-6-luna`; API error bodies are suppressed to avoid echoing key fragments. |
 | No completed code call | Inspect the report, model capability, and tool configuration. |
 | Missing or ambiguous cited files | Inspect output messages. The final answer must link one generated PNG and one totals CSV. |
 | Invalid PNG or totals | Inspect generated code and rerun after correcting the instructions/input. No local fallback image is produced. |

@@ -1,74 +1,33 @@
-# Build Log: Lab 03
+# Build Log: Lab 03 SandboxAgent Sampler
 
-## Prompts Used
+## Prompt steps
 
-- Prompt 1: buggy calculator workspace.
-  - Fixed mounting rule: use relative manifest destination `repo` and synthetic
-    `Dir`/`File` entries, not absolute `/workspace` or host `LocalDir`.
-- Prompt 2: SandboxAgent lab instructions.
-- Prompt 3: `debug-failing-tests` skill.
-- Prompt 4: memory exercise.
-- Prompt 5: UnixLocal `SandboxRunConfig` path with relative synthetic manifest
-  entries.
-- Prompt 6: streamed SandboxAgent progress output.
-- Prompt update: explicit sandbox memory lifecycle, workspace export, and short
-  memory smoke runner.
+- Prompt 1: Added the tiny calculator repo, its intentionally failing test,
+  and a smoke check for the SDK manifest's validated relative entries.
+- Prompt 2: Added SandboxAgent instructions to inspect, test, fix, and verify
+  the calculator, then write and reread durable notes in root-level `memories/`.
+- Prompt 3: Added the `debug-failing-tests` skill.
+- Prompt 4: Seeded file-based memory locally and in the relative manifest,
+  explicitly configured SDK `Memory`, and documented the two-run worksheet.
+- Prompt 5: Added explicit `Filesystem`, `Shell`, `Skills`, and `Memory`
+  capabilities, UnixLocal configuration and live-session helpers, and local
+  SDK contract checks.
+- Prompt 6: Added streamed and non-streamed runner paths, `--model` and
+  `--max-turns` options, snapshot support, and finally-path close/export/delete
+  cleanup.
+- Prompt 7: Added `run_memory_demo.py`, which reuses one unique `LocalSnapshot`
+  across two fresh runs with distinct trace group IDs. It verifies that the
+  first raw memory survives unchanged and both raw memories have matching
+  rollout summaries.
 
 ## Verification
 
-- `uv run --with pytest pytest -q`: 3 passed.
-- Tests validate `SandboxAgent`, manifest, sandbox capabilities, and
-  `RunConfig(sandbox=SandboxRunConfig(client=UnixLocalSandboxClient(...)))`.
-
-## Memory Lifecycle Update
-
-Updated the reference solution to match the replay memory fix.
-
-Implementation:
-
-- Seeded `memories/` into the SDK manifest.
-- Added explicit `Memory(...)` configuration with layout, read, and generation
-  settings.
-- Added a live-session `RunConfig` helper for
-  `SandboxRunConfig(session=sandbox)`.
-- Updated the streamed demo to create a live UnixLocal session, close it so
-  memory can flush, export the workspace to `artifacts/latest-workspace`, and
-  delete the temporary workspace after export.
-- Added `run_memory_smoke.py` for a short two-run memory-only test.
-- Added local tests for the manifest memory seed, memory configuration,
-  live-session run config, and memory smoke runner.
-
-Verification:
-
-- `uv run --extra dev pytest` passed with 7 tests and 1 skipped
-  API-backed test.
-- `uv run python run_memory_smoke.py` skipped cleanly without `OPENAI_API_KEY`.
-
-## Max-Turn And Cleanup Fix
-
-Updated the reference solution after the streamed SandboxAgent demo reached
-`MaxTurnsExceeded` after tests had already passed.
-
-Implementation:
-
-- Added an explicit instruction for the agent to stop using tools and provide
-  the final summary once tests pass.
-- Added `--max-turns`, defaulting to 20, and passed it to both
-  `Runner.run_streamed(..., max_turns=...)` and the `--no-stream`
-  `Runner.run(..., max_turns=...)` path.
-- Moved close/export/delete into a shared cleanup path that runs in `finally`,
-  including when `MaxTurnsExceeded` is raised.
-- The cleanup closes the sandbox first so SDK memory generation can flush,
-  exports `artifacts/latest-workspace`, then deletes the temporary UnixLocal
-  workspace.
-- Added local tests that assert the turn budget, cleanup path, and
-  stop-after-tests instruction are present.
-
-Verification:
-
-- `uv run --extra dev pytest` passed with 9 tests and 1 skipped API-backed
-  test.
-- `uv run python -m sandbox_sampler.run_sandbox_demo --max-turns 30` skips
-  cleanly without `OPENAI_API_KEY`.
-- `uv run python -m sandbox_sampler.run_sandbox_demo --no-stream --max-turns 30`
-  skips cleanly without `OPENAI_API_KEY`.
+- `python -m py_compile` on the lab's Python files: passed.
+- `python -m pytest -q tests` in the solution directory using the Lab 05
+  virtual environment: passed (4 tests).
+- `python check_manifest.py`: passed; relative manifest and seeded Memory
+  configuration validated.
+- `python -m py_compile sandbox_manifest.py sandbox_instructions.py
+  run_sandbox_demo.py run_memory_demo.py check_manifest.py`: passed.
+- API-backed demos require `OPENAI_API_KEY`; they are not part of local test
+  verification.

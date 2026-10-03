@@ -13,6 +13,8 @@ lab-02-handoffs-patterns/
 lab-03-sandboxagent-sampler/
 lab-04-sql-analyzer/
 lab-05-realtime-voice-agent/
+chapter-10/
+  openai-dashboard-monitoring/
 replay-environment/
   .agents/
     skills/
@@ -66,6 +68,10 @@ Each `reference-solution/` should contain:
   eval helpers, and tests. It must not replace the SDK agent flow in SDK labs.
 - API-backed demos should require `OPENAI_API_KEY`, but local tests must run
   without making model calls.
+
+Chapter-based labs are being introduced starting with Chapter 10. Keep new
+chapter-based labs under `chapter-<number>/lab-<number>-<topic>/`; existing
+numbered lab folders stay in place until the planned repository reorganization.
 
 ## Skill And SDK Reference
 
@@ -189,6 +195,22 @@ Lab 05:
 - Never expose a standard `OPENAI_API_KEY` to browser code; the browser should
   receive only an ephemeral realtime client secret.
 - Local tests must not require audio hardware or call the OpenAI API.
+
+Chapter 10 Lab 10:
+
+- Use one SDK `Agent` connected to a local stdio MCP server with two
+  deterministic mock tools: weather for five fixed cities and public pool
+  hours for the fictional town Riverton.
+- Use `RunConfig.group_id` consistently across related `Runner.run` calls so
+  their traces can be inspected together in the OpenAI dashboard.
+- Identify all weather and pool data as synthetic/mock data.
+
+Chapter 10 Lab 11:
+
+- Use `agents.extensions.visualization.draw_graph` from the `openai-agents[viz]`
+  extra to render a real SDK Agent handoff graph to PNG.
+- Model the two handovers as two sequential real `Agent.handoffs` edges and
+  keep the diagram build independent of API calls.
 
 ## Verification Expectations
 

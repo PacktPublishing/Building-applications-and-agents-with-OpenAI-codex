@@ -184,7 +184,7 @@ Requirements:
 - Use the TypeScript OpenAI Agents SDK package `@openai/agents`.
 - Use SDK `RealtimeAgent` and `RealtimeSession` from
   `@openai/agents/realtime`.
-- Use model `gpt-realtime-2`.
+- Use model `gpt-realtime-2.1`.
 - Use a function-call-safe realtime agent name such as
   `realtime_course_assistant`.
 - Add a browser UI that starts and stops a realtime session, requests
@@ -203,8 +203,7 @@ Requirements:
   must receive only the ephemeral realtime client secret.
 - Include an `OpenAI-Safety-Identifier` header on the server-side client secret
   request.
-- Use HTTPS for the browser dev server, because microphone access requires
-  HTTPS or localhost.
+- For local development, serve the browser app over plain HTTP at http://localhost:5173. Browsers treat localhost as a secure context, so microphone access works there. Do not configure local HTTPS or add a self-signed certificate. Document the exact URL, and verify the page loads without certificate warnings.
 - Explain that this realtime app is not the Python `VoicePipeline`: it keeps a
   live WebRTC session open and the model handles the speech-to-speech
   conversation directly.
@@ -223,7 +222,7 @@ Verification:
 
 ## Prompt 6: Polish Realtime Browser Runtime Behavior
 
-Verify the live browser runtime behavior before sharing the lab.
+Verify the live browser runtime behavior.
 
 Requirements:
 

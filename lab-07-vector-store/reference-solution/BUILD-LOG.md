@@ -55,3 +55,8 @@ Built on 2026-09-03 by following the lab-level prompt pack in order.
 - Final verification: **23 offline tests passed; 1 live test skipped**.
   Hosted retrieval, model answer quality, and real cleanup remain unverified
   until the documented opt-in live test is run with credentials.
+
+## Model alignment update
+
+- Set the text Agent/SandboxAgent default to `gpt-6-luna`; retained specialized voice and transcription models where applicable.
+- Offline verification after the update: 23 passed, 1 skipped.

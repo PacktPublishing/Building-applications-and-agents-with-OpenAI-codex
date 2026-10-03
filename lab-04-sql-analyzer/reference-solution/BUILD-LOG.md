@@ -21,3 +21,8 @@
   open-ended `dict[str, Any]` final rows with ordered value arrays matching the
   `columns` field.
 - Verification: `uv run pytest -q` -> 17 passed, 1 skipped.
+
+## Model alignment update
+
+- Set the text Agent/SandboxAgent default to `gpt-6-luna`; retained specialized voice and transcription models where applicable.
+- Offline verification after the update: 18 passed, 1 skipped.
