@@ -26,3 +26,11 @@
 
 - Set the text Agent/SandboxAgent default to `gpt-6-luna`; retained specialized voice and transcription models where applicable.
 - Offline verification after the update: 18 passed, 1 skipped.
+
+## SQL Analyzer model configuration alignment (2026-10-05)
+
+- Confirmed `get_model()` already defaults to `gpt-6-luna`.
+- Aligned `.env.example` with that default and documented it in the README.
+- Verification: `../../.venv/bin/python -m pytest -q` -> 18 passed, 1 skipped.
+- `uv run pytest -q` was blocked by the existing workspace configuration:
+  Lab 03 is listed as a member but has no `pyproject.toml`.

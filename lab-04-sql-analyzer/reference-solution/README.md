@@ -57,6 +57,8 @@ This creates `data/ecommerce.db` with:
 
 ## Run The Agent
 
+The reference solution uses `gpt-6-luna` by default.
+
 ```bash
 sql-analyzer "Which products generated the most revenue?"
 ```
