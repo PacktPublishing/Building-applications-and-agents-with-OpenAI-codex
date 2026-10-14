@@ -20,7 +20,7 @@ uv run --with pytest pytest -q
 
 ## 2. OpenAI API Smoke Tests
 
-These tests call the OpenAI API for Labs 01, 04, 07, 08, and 09. Lab 006 uses a manual live exercise. Set `OPENAI_API_KEY` first.
+These tests call the OpenAI API for Labs 01, 04, 07, 08, and 09. Lab 10 uses a manual live exercise. Set `OPENAI_API_KEY` first.
 Set `REQUIRE_OPENAI_API=1` so missing credentials fail instead of skipping.
 
 ```bash
@@ -122,14 +122,14 @@ The tests verify the three SDK Agent objects, exactly two handoffs, and both
 graph edges. PNG rendering is verified when the system `dot` executable is
 installed. The exporter does not make model calls.
 
-## Lab 006 REPL offline checks
+## Lab 10 REPL offline checks
 
 From the repository root with the existing synced environment:
 
 ```bash
-cd lab-006-repl/reference-solution
+cd lab-10-repl/reference-solution
 ../../.venv/bin/python -m unittest discover -s tests -v
 ```
 
-Live behavior is checked with the [manual REPL exercise](lab-006-repl/lab-brief.md);
+Live behavior is checked with the [manual REPL exercise](lab-10-repl/lab-brief.md);
 mocked offline checks do not prove model responses.

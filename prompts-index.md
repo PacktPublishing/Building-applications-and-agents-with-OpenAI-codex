@@ -15,7 +15,7 @@ reference implementations.
 | 07 | `lab-07-realtime-voice-agent/prompt-pack.md` |
 | 08 | `lab-08-sandboxagent-sampler/prompt-pack.md` |
 | 09 | `lab-09-sql-analyzer/prompt-pack.md` |
-| 006 | [Interactive Agent REPL](lab-006-repl/prompt-pack.md) |
+| 10 | [Interactive Agent REPL](lab-10-repl/prompt-pack.md) |
 
 Prompt packs are part of the lab deliverable. When a reference solution is
 rebuilt, record prompt IDs and verification in that lab's `BUILD-LOG.md`.

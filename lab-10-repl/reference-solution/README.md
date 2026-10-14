@@ -1,4 +1,4 @@
-# Lab 06 reference: Shopping-list REPL
+# Lab 10 reference: Shopping-list REPL
 
 This tiny example uses `Agent` and `run_demo_loop` directly. It lets you test
 conversation history and streaming from a terminal.
@@ -31,7 +31,7 @@ works without credentials.
 
 If using the existing repository environment, no separate install is needed:
 from the repository root run
-` .venv/bin/python lab-06-repl/reference-solution/run_reference.py`.
+` .venv/bin/python lab-10-repl/reference-solution/run_reference.py`.
 
 ## Manual test
 

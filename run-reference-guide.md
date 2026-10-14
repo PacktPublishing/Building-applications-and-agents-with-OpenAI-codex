@@ -162,15 +162,15 @@ uv run python run_reference.py
 
 Use the SQL Analyzer README for CLI options and custom questions.
 
-## Lab 006
+## Lab 10
 
 From the repository root, using the existing synced environment:
 
 ```bash
-.venv/bin/python lab-006-repl/reference-solution/run_reference.py
+.venv/bin/python lab-10-repl/reference-solution/run_reference.py
 # After exiting, compare complete replies:
-.venv/bin/python lab-006-repl/reference-solution/run_reference.py --no-stream
+.venv/bin/python lab-10-repl/reference-solution/run_reference.py --no-stream
 ```
 
-See the [REPL runbook](lab-006-repl/reference-solution/README.md) for standalone
+See the [REPL runbook](lab-10-repl/reference-solution/README.md) for standalone
 setup and the manual conversation exercise.

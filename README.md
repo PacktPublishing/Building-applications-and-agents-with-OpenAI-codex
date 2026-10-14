@@ -7,7 +7,7 @@ Codex is the construction partner. OpenAI Agents and SandboxAgents are the
 subject matter.
 
 The reference implementations are SDK-first: Lab 00 teaches Codex workflow,
-Labs 01-07, 09, and 006 use direct OpenAI Agents SDK `Agent` flows, and Lab 08 uses
+Labs 01-07, 09, and 10 use direct OpenAI Agents SDK `Agent` flows, and Lab 08 uses
 direct SDK `SandboxAgent` with Unix-local `SandboxRunConfig`.
 
 All text-based Agent and SandboxAgent references explicitly default to
@@ -68,7 +68,7 @@ See its reference README for setup.
 | 07 | Realtime Voice Agent | Compare Python voice pipelines with browser realtime sessions |
 | 08 | SandboxAgent Sampler | Show workspace, shell, skills, memory, and resumption |
 | 09 | SQL Analyzer Agent | First full business reference solution |
-| [006](lab-006-repl/lab-brief.md) | Interactive Agent REPL | Test conversation history and streaming in a terminal |
+| [10](lab-10-repl/lab-brief.md) | Interactive Agent REPL | Test conversation history and streaming in a terminal |
 
 ## Reproducible Prompts
 
@@ -99,7 +99,7 @@ Lab 02 follows Lab 01 and teaches document ingestion, vector store search,
 and `FileSearchTool` through a [guided reference](lab-02-vector-store/reference-solution/README.md).
 Lab 03 also follows Lab 01 and uses `CodeInterpreterTool` to create a PNG diagram
 from a synthetic CSV, then [download and check the generated files](lab-03-code-interpreter/reference-solution/README.md).
-Lab 006 is a short optional exercise you can take immediately after Lab 01.
+Lab 10 is a short optional exercise you can take immediately after Lab 01.
 
 Lab 05 builds a local MCP-backed agent and inspects grouped traces in the
 OpenAI dashboard. Lab 06 draws a real SDK handoff graph and exports it as a PNG.

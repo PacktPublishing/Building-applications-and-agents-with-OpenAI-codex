@@ -1,9 +1,9 @@
-# Lab 06: Interactive Agent REPL
+# Lab 10: Interactive Agent REPL
 
 **Status:** Reference built; offline checks pass; live model exercise not yet verified.
 
 **Time:** 20–30 minutes. **Prerequisite:** Basic Python and a first SDK `Agent`
-(Lab 01). This lab can be taken immediately after Lab 01; Labs 02–05 are not required.
+(Lab 01). This lab can be taken immediately after Lab 01; Labs 02–09 are not required.
 
 ## Goal
 
@@ -30,9 +30,9 @@ By the end, you should be able to:
 Open `replay-environment/` in Codex. Paste:
 
 ```text
-Use labs/lab-06-repl/prompt-pack.md and the openai-agents-sdk skill.
+Use labs/lab-10-repl/prompt-pack.md and the openai-agents-sdk skill.
 Follow REPL-01 through REPL-04 in order.
-Build into solutions/lab-06-repl/.
+Build into solutions/lab-10-repl/.
 Do not inspect or copy any reference-solution folder.
 Record each prompt and actual verification in BUILD-LOG.md.
 ```

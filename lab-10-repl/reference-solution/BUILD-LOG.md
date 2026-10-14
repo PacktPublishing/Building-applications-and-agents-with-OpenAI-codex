@@ -1,4 +1,4 @@
-# Lab 06 build log
+# Lab 10 build log
 
 Built 2026-09-03 by following the lab-level prompt pack in order.
 
@@ -25,9 +25,9 @@ Reviewed the implementation against the SDK helper signature.
 Added `--no-stream` and a startup hint. From the repository root, ran:
 
 ```bash
-.venv/bin/python lab-06-repl/reference-solution/run_reference.py --help
-env -u OPENAI_API_KEY .venv/bin/python lab-06-repl/reference-solution/run_reference.py
-env -u OPENAI_API_KEY .venv/bin/python lab-06-repl/reference-solution/run_reference.py --no-stream
+.venv/bin/python lab-10-repl/reference-solution/run_reference.py --help
+env -u OPENAI_API_KEY .venv/bin/python lab-10-repl/reference-solution/run_reference.py
+env -u OPENAI_API_KEY .venv/bin/python lab-10-repl/reference-solution/run_reference.py --no-stream
 ```
 
 All exited successfully. Help showed the flag; both no-key commands printed
@@ -67,3 +67,10 @@ do not establish those outcomes.
 
 - Raised the OpenAI Agents SDK floor to `openai-agents>=0.23.1` (resolved
   0.23.1 with `openai` 3.31.0). Offline tests pass; live API tests were not rerun.
+
+## Renumbering — Lab 06 to Lab 10
+
+- Renamed `lab-06-repl/` (temporarily `lab-006-repl/`) to `lab-10-repl/`, and
+  the replay prompt pack folder to `replay-environment/labs/lab-10-repl/`.
+- Updated titles, prompt packs, run commands, and repository-level guides to
+  Lab 10.

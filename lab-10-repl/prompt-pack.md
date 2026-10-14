@@ -1,12 +1,15 @@
-# Prompt Pack: Lab 06 — Interactive REPL
+# Prompt Pack: Lab 10 — Interactive REPL
+
+
+Default all SDK Agent/SandboxAgent model settings to `gpt-6-luna`. Keep modality-specific transcription, speech, and realtime audio model IDs unchanged.
 
 Run REPL-01 through REPL-04 in order in the same Codex task. This pack is
 self-contained; a replay must not read or copy any reference solution.
 Use the repo-local openai-agents-sdk skill and official SDK checkout.
 
-For a reference build, use `lab-06-repl/reference-solution/` as the output
+For a reference build, use `lab-10-repl/reference-solution/` as the output
 directory. For a learner replay, work from `replay-environment/` and use
-`solutions/lab-06-repl/`. Use that same output directory for every prompt.
+`solutions/lab-10-repl/`. Use that same output directory for every prompt.
 
 ## REPL-01 — Build the smallest interactive agent
 

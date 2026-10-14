@@ -60,7 +60,7 @@ Each `reference-solution/` should contain:
 - Require OpenAI Agents SDK `openai-agents>=0.23.1` in every lab's
   `pyproject.toml` or `requirements.txt`; exact pins must be 0.23.1 or newer.
 - Lab 00 is Codex workflow only.
-- Labs 01-07 and 09 use SDK `Agent` objects.
+- Labs 01-07, 09, and 10 use SDK `Agent` objects.
 - Lab 08 uses SDK `SandboxAgent`.
 - Keep important SDK objects visible in the labs: `Agent`, `SandboxAgent`,
   `Runner`, `RunConfig`, `SandboxRunConfig`, tools, handoffs, guardrails,
@@ -73,9 +73,8 @@ Each `reference-solution/` should contain:
 - API-backed demos should require `OPENAI_API_KEY`, but local tests must run
   without making model calls.
 
-Keep every lab at the repository root as `lab-<number>-<topic>/`. Folders with
-three-digit numbers (currently `lab-006-repl/`) carry a temporary number until
-the ongoing renumbering assigns its final two-digit lab number.
+Keep every lab at the repository root as `lab-<number>-<topic>/`, using a
+two-digit lab number.
 
 ## Skill And SDK Reference
 
