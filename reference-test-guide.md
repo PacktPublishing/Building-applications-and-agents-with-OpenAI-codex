@@ -95,6 +95,33 @@ all twelve monthly totals against independent Decimal arithmetic, and cleanup.
 The chart is retained for visual inspection. See the
 [Code Interpreter verification guide](lab-03-code-interpreter/reference-solution/README.md#verification).
 
+## Lab 05 dashboard monitoring checks
+
+Offline checks require no OpenAI API calls:
+
+```bash
+cd lab-05-openai-dashboard-monitoring/reference-solution
+uv run --with pytest pytest -q
+```
+
+The demo is API-backed and skips cleanly without `OPENAI_API_KEY`. With a key,
+it sends two runs through the local MCP server. Inspect the resulting traces
+and the shared `group_id` in the OpenAI dashboard.
+
+## Lab 06 handoff visualization checks
+
+```bash
+cd lab-06-multi-agent-architecture-visualization/reference-solution
+uv venv
+uv pip install -r requirements.txt
+./.venv/bin/python -m pytest -q
+./.venv/bin/python export_diagram.py
+```
+
+The tests verify the three SDK Agent objects, exactly two handoffs, and both
+graph edges. PNG rendering is verified when the system `dot` executable is
+installed. The exporter does not make model calls.
+
 ## Lab 006 REPL offline checks
 
 From the repository root with the existing synced environment:
@@ -106,30 +133,3 @@ cd lab-006-repl/reference-solution
 
 Live behavior is checked with the [manual REPL exercise](lab-006-repl/lab-brief.md);
 mocked offline checks do not prove model responses.
-
-## Chapter 10 Lab 10 dashboard monitoring checks
-
-Offline checks require no OpenAI API calls:
-
-```bash
-cd chapter-10/openai-dashboard-monitoring/reference-solution
-uv run --with pytest pytest -q
-```
-
-The demo is API-backed and skips cleanly without `OPENAI_API_KEY`. With a key,
-it sends two runs through the local MCP server. Inspect the resulting traces
-and the shared `group_id` in the OpenAI dashboard.
-
-## Chapter 10 Lab 11 handoff visualization checks
-
-```bash
-cd chapter-10/multi-agent-architecture-visualization/reference-solution
-uv venv
-uv pip install -r requirements.txt
-./.venv/bin/python -m pytest -q
-./.venv/bin/python export_diagram.py
-```
-
-The tests verify the three SDK Agent objects, exactly two handoffs, and both
-graph edges. PNG rendering is verified when the system `dot` executable is
-installed. The exporter does not make model calls.

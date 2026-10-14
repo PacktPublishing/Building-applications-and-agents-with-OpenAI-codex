@@ -77,6 +77,32 @@ uv run python run_reference.py handoff
 uv run python run_reference.py tools
 ```
 
+## Lab 05
+
+```bash
+cd lab-05-openai-dashboard-monitoring/reference-solution
+uv pip install -r requirements.txt
+export OPENAI_API_KEY="sk-..."
+uv run python run_reference.py
+```
+
+The runner makes two requests through one local MCP server and prints each
+`final_output`. Find both traces under the shared group ID documented in the
+[lab README](lab-05-openai-dashboard-monitoring/reference-solution/README.md).
+
+## Lab 06
+
+```bash
+cd lab-06-multi-agent-architecture-visualization/reference-solution
+uv venv
+uv pip install -r requirements.txt
+./.venv/bin/python export_diagram.py
+```
+
+This makes no API calls and writes `outputs/multi-agent-handoffs.png`. Install
+the native Graphviz executable first; see the
+[lab README](lab-06-multi-agent-architecture-visualization/reference-solution/README.md).
+
 ## Lab 003
 
 ```bash
@@ -148,29 +174,3 @@ From the repository root, using the existing synced environment:
 
 See the [REPL runbook](lab-006-repl/reference-solution/README.md) for standalone
 setup and the manual conversation exercise.
-
-## Chapter 10 Lab 10
-
-```bash
-cd chapter-10/openai-dashboard-monitoring/reference-solution
-uv pip install -r requirements.txt
-export OPENAI_API_KEY="sk-..."
-uv run python run_reference.py
-```
-
-The runner makes two requests through one local MCP server and prints each
-`final_output`. Find both traces under the shared group ID documented in the
-[lab README](chapter-10/openai-dashboard-monitoring/reference-solution/README.md).
-
-## Chapter 10 Lab 11
-
-```bash
-cd chapter-10/multi-agent-architecture-visualization/reference-solution
-uv venv
-uv pip install -r requirements.txt
-./.venv/bin/python export_diagram.py
-```
-
-This makes no API calls and writes `outputs/multi-agent-handoffs.png`. Install
-the native Graphviz executable first; see the
-[lab README](chapter-10/multi-agent-architecture-visualization/reference-solution/README.md).

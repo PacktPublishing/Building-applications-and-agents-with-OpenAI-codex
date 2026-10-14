@@ -12,11 +12,11 @@ lab-01-agent-basics/
 lab-02-vector-store/
 lab-03-code-interpreter/
 lab-04-handoffs-patterns/
+lab-05-openai-dashboard-monitoring/
+lab-06-multi-agent-architecture-visualization/
 lab-003-sandboxagent-sampler/
 lab-004-sql-analyzer/
 lab-005-realtime-voice-agent/
-chapter-10/
-  openai-dashboard-monitoring/
 replay-environment/
   .agents/
     skills/
@@ -60,7 +60,7 @@ Each `reference-solution/` should contain:
 - Require OpenAI Agents SDK `openai-agents>=0.23.1` in every lab's
   `pyproject.toml` or `requirements.txt`; exact pins must be 0.23.1 or newer.
 - Lab 00 is Codex workflow only.
-- Labs 01-04 and 004-005 use SDK `Agent` objects.
+- Labs 01-06 and 004-005 use SDK `Agent` objects.
 - Lab 003 uses SDK `SandboxAgent`.
 - Keep important SDK objects visible in the labs: `Agent`, `SandboxAgent`,
   `Runner`, `RunConfig`, `SandboxRunConfig`, tools, handoffs, guardrails,
@@ -73,9 +73,9 @@ Each `reference-solution/` should contain:
 - API-backed demos should require `OPENAI_API_KEY`, but local tests must run
   without making model calls.
 
-Chapter-based labs are being introduced starting with Chapter 10. Keep new
-chapter-based labs under `chapter-<number>/lab-<number>-<topic>/`; existing
-numbered lab folders stay in place until the planned repository reorganization.
+Keep every lab at the repository root as `lab-<number>-<topic>/`. Folders with
+three-digit numbers (`lab-003-*` to `lab-006-*`) carry temporary numbers until
+the ongoing renumbering assigns their final two-digit lab number.
 
 ## Skill And SDK Reference
 
@@ -200,7 +200,7 @@ Lab 005:
   receive only an ephemeral realtime client secret.
 - Local tests must not require audio hardware or call the OpenAI API.
 
-Chapter 10 Lab 10:
+Lab 05:
 
 - Use one SDK `Agent` connected to a local stdio MCP server with two
   deterministic mock tools: weather for five fixed cities and public pool
@@ -209,7 +209,7 @@ Chapter 10 Lab 10:
   their traces can be inspected together in the OpenAI dashboard.
 - Identify all weather and pool data as synthetic/mock data.
 
-Chapter 10 Lab 11:
+Lab 06:
 
 - Use `agents.extensions.visualization.draw_graph` from the `openai-agents[viz]`
   extra to render a real SDK Agent handoff graph to PNG.

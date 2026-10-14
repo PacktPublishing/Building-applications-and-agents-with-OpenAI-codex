@@ -1,4 +1,4 @@
-# Chapter 10 Lab 11: Visualize a Multi-Agent Handoff Architecture
+# Lab 06: Visualize a Multi-Agent Handoff Architecture
 
 This lab creates a static, three-agent chain using real Agents SDK `Agent`
 objects and two directed handovers. The SDK visualization extension turns the

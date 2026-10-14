@@ -4,7 +4,7 @@ from mcp.server.fastmcp import FastMCP
 
 from mock_data import get_mock_weather, get_public_pool_hours
 
-server = FastMCP("chapter-10-monitoring-mocks")
+server = FastMCP("lab-05-monitoring-mocks")
 
 
 @server.tool()

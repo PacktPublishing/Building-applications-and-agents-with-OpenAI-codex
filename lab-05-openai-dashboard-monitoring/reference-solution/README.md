@@ -1,4 +1,4 @@
-# Chapter 10 Lab 10: Monitor Agent Runs in the OpenAI Dashboard
+# Lab 05: Monitor Agent Runs in the OpenAI Dashboard
 
 This reference builds one OpenAI Agents SDK `Agent` with a local stdio MCP
 server. The server exposes two deterministic synthetic tools: mock weather for
@@ -19,7 +19,7 @@ export OPENAI_API_KEY="sk-..."
 
 Without `OPENAI_API_KEY`, the runner prints a clean skip message. Each run
 prints the model's `final_output`. Both `Runner.run` calls use the same SDK
-`RunConfig.group_id` (`chapter-10-monitoring-demo`), producing separate traces
+`RunConfig.group_id` (`lab-05-monitoring-demo`), producing separate traces
 that can be grouped as one conversation/process in the dashboard.
 
 ## Inspect traces
@@ -27,8 +27,8 @@ that can be grouped as one conversation/process in the dashboard.
 Open [OpenAI Dashboard Logs](https://platform.openai.com/logs) and select the
 Agents view or open [Traces](https://platform.openai.com/traces), depending on
 the dashboard view available to your account. Find the workflow named
-**Chapter 10 mock town services**, then inspect the two runs. The SDK records
-the `group_id` and trace metadata (`chapter`, `lab`, and `data`) on each trace.
+**Lab 05 mock town services**, then inspect the two runs. The SDK records
+the `group_id` and trace metadata (`lab`, `example`, and `data`) on each trace.
 Open each trace and expand its timeline to review the model generation, local
 MCP tool name, arguments, and returned tool output. Dashboard navigation and
 filters can vary by account; if group ID is not directly searchable, open one

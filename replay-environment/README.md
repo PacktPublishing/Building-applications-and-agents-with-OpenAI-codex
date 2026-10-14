@@ -10,12 +10,12 @@ It intentionally contains reusable context, not finished reference solutions.
 - `.agents/skills/openai-agents-sdk/openai-agents-python/`: submodule pointing
   to the official `openai/openai-agents-python` repository for examples, tests,
   and docs.
-- `labs/*/prompt-pack.md`: prompt packs for Labs 01-04, 003-006, and Chapter 10 Labs 10-11.
-- [Lab 006 REPL prompt pack](labs/lab-006-repl/prompt-pack.md): a short shopping-list exercise after Lab 01.
+- `labs/*/prompt-pack.md`: prompt packs for Labs 01-06 and 003-006.
 - [Lab 02 vector store prompt pack](labs/lab-02-vector-store/prompt-pack.md): document ingestion, hosted search, citations, and cleanup after Lab 01.
 - [Lab 03 Code Interpreter prompt pack](labs/lab-03-code-interpreter/prompt-pack.md): a synthetic CSV becomes a downloadable diagram through hosted Python execution.
-- [Chapter 10 Lab 10 monitoring prompt pack](labs/openai-dashboard-monitoring/prompt-pack.md): a local MCP-backed agent creates grouped traces for dashboard inspection.
-- [Chapter 10 Lab 11 visualization prompt pack](labs/multi-agent-architecture-visualization/prompt-pack.md): three SDK Agents, two handovers, and PNG export through the `viz` extension.
+- [Lab 05 monitoring prompt pack](labs/lab-05-openai-dashboard-monitoring/prompt-pack.md): a local MCP-backed agent creates grouped traces for dashboard inspection.
+- [Lab 06 visualization prompt pack](labs/lab-06-multi-agent-architecture-visualization/prompt-pack.md): three SDK Agents, two handovers, and PNG export through the `viz` extension.
+- [Lab 006 REPL prompt pack](labs/lab-006-repl/prompt-pack.md): a short shopping-list exercise after Lab 01.
 
 ## SDK Submodule
 

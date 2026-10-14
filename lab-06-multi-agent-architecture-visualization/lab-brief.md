@@ -1,4 +1,4 @@
-# Chapter 10 · Lab 11: Visualize a Multi-Agent Handoff Architecture
+# Lab 06: Visualize a Multi-Agent Handoff Architecture
 
 ## Goal
 

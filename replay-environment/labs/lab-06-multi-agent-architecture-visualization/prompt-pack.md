@@ -1,4 +1,4 @@
-# Prompt Pack: Chapter 10, Lab 11
+# Prompt Pack: Lab 06
 
 Use these prompts in order. Build under
 `solutions/multi-agent-architecture-visualization/`. Do not inspect or copy

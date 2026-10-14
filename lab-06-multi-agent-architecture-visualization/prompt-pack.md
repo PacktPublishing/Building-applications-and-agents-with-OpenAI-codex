@@ -1,4 +1,4 @@
-# Prompt Pack: Chapter 10, Lab 11
+# Prompt Pack: Lab 06
 
 Default every SDK Agent model to `gpt-6-luna`. Use these prompts in order.
 Create the reference solution under `reference-solution/`.

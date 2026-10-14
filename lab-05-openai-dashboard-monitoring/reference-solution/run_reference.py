@@ -10,7 +10,7 @@ from agents.mcp import MCPServerStdio
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent
-GROUP_ID = "chapter-10-monitoring-demo"
+GROUP_ID = "lab-05-monitoring-demo"
 
 
 def build_agent(server: MCPServerStdio) -> Agent:
@@ -28,9 +28,9 @@ def build_agent(server: MCPServerStdio) -> Agent:
 
 def build_run_config() -> RunConfig:
     return RunConfig(
-        workflow_name="Chapter 10 mock town services",
+        workflow_name="Lab 05 mock town services",
         group_id=GROUP_ID,
-        trace_metadata={"chapter": "10", "lab": "dashboard-monitoring", "data": "mock"},
+        trace_metadata={"lab": "05", "example": "dashboard-monitoring", "data": "mock"},
     )
 
 
@@ -41,7 +41,7 @@ async def main() -> int:
         return 0
 
     params = {"command": sys.executable, "args": [str(ROOT / "mcp_server.py")], "cwd": str(ROOT)}
-    async with MCPServerStdio(name="Chapter 10 mock services", params=params) as server:
+    async with MCPServerStdio(name="Lab 05 mock services", params=params) as server:
         agent = build_agent(server)
         config = build_run_config()
         for label, prompt in (

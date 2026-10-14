@@ -1,4 +1,4 @@
-# Prompt Pack: Chapter 10, Lab 10
+# Prompt Pack: Lab 05
 
 Follow these prompts in order. Build the solution under
 `solutions/openai-dashboard-monitoring/`. Do not copy or inspect another
@@ -46,7 +46,7 @@ verification results in BUILD-LOG.md.
 
 ```text
 Review the new lab brief, README, prompt pack, tests, and runnable demo for
-consistent Chapter 10 wording and accurate dashboard instructions. Run the
+consistent Lab 05 wording and accurate dashboard instructions. Run the
 offline tests and record their actual result in BUILD-LOG.md. Do not inspect or
 copy from other labs' reference-solution folders.
 ```

@@ -35,20 +35,20 @@ def test_pool_hours_are_mocked_and_validate_town_and_weekday():
 
 def test_sdk_agent_uses_one_local_stdio_mcp_server_with_two_tools():
     params = {"command": sys.executable, "args": [str(ROOT / "mcp_server.py")], "cwd": str(ROOT)}
-    server = MCPServerStdio(name="Chapter 10 mock services", params=params)
+    server = MCPServerStdio(name="Lab 05 mock services", params=params)
     agent = build_agent(server)
     assert isinstance(agent, Agent)
     assert agent.mcp_servers == [server]
-    assert server.name == "Chapter 10 mock services"
+    assert server.name == "Lab 05 mock services"
 
 
 def test_runs_share_trace_group_id_and_metadata():
     config = build_run_config()
     assert isinstance(config, RunConfig)
-    assert config.group_id == GROUP_ID == "chapter-10-monitoring-demo"
-    assert config.workflow_name == "Chapter 10 mock town services"
+    assert config.group_id == GROUP_ID == "lab-05-monitoring-demo"
+    assert config.workflow_name == "Lab 05 mock town services"
     assert config.trace_metadata == {
-        "chapter": "10", "lab": "dashboard-monitoring", "data": "mock"
+        "lab": "05", "example": "dashboard-monitoring", "data": "mock"
     }
 
 

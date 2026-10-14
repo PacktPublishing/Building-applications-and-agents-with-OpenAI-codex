@@ -1,4 +1,4 @@
-# Chapter 10 · Lab 10: Monitor Agent Runs in the OpenAI Dashboard
+# Lab 05: Monitor Agent Runs in the OpenAI Dashboard
 
 ## Goal
 

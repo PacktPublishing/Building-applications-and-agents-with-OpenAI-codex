@@ -1,4 +1,4 @@
-# Prompt Pack: Chapter 10, Lab 10
+# Prompt Pack: Lab 05
 
 
 Default all SDK Agent/SandboxAgent model settings to `gpt-6-luna`. Keep modality-specific transcription, speech, and realtime audio model IDs unchanged.
@@ -44,14 +44,14 @@ OPENAI_API_KEY and runs the demo with credentials. Record prompts and actual
 verification results in reference-solution/BUILD-LOG.md.
 ```
 
-## Prompt 4 — Replay and chapter navigation
+## Prompt 4 — Replay and lab navigation
 
 ```text
 Review the new lab brief, README, prompt pack, and runnable demo for consistent
-Chapter 10 wording and accurate dashboard instructions. Add this lab to the
+Lab 05 wording and accurate dashboard instructions. Add this lab to the
 repository README, prompts index, run-reference guide, and reference test guide
 without reorganizing or renaming existing labs. Add a matching replay prompt
-pack under replay-environment/labs/openai-dashboard-monitoring and
+pack under replay-environment/labs/lab-05-openai-dashboard-monitoring and
 document the replay output path under solutions/. Do not inspect or copy any
 other reference solution while replaying this prompt pack.
 ```
