@@ -1,4 +1,4 @@
-# Course Lab Patterns From Labs 01-05
+# Course Lab Patterns From Labs 01, 04, 07, 08, and 09
 
 Use these notes when rebuilding or extending the course labs. They preserve
 reference-level implementation decisions that are easy to lose during replay.
@@ -19,7 +19,7 @@ Teach the smallest direct SDK surfaces first:
 - For session memory, compare stateless runs with SDK `Session`-backed runs.
   This is conversation history memory, not SandboxAgent workspace memory.
 
-## Lab 02: Handoffs And Agents As Tools
+## Lab 04: Handoffs And Agents As Tools
 
 Teach both orchestration patterns explicitly:
 
@@ -37,7 +37,7 @@ Teach both orchestration patterns explicitly:
   manager, `Agent.as_tool(...)` outputs are in manager tools, and `Runner.run`
   receives `RunConfig`.
 
-## Lab 03: SandboxAgent Sampler
+## Lab 08: SandboxAgent Sampler
 
 Use `SandboxAgent` only when workspace-native execution is the teaching goal:
 files, shell commands, skills, memory, artifacts, or resumable sandbox state.
@@ -73,7 +73,7 @@ Sandbox memory guidance:
   memory files and local tests for capability/configuration. Do not make a
   required two-run API-backed memory test unless the lab explicitly asks for it.
 
-## Lab 04: SQL Analyzer Agent
+## Lab 09: SQL Analyzer Agent
 
 Keep database work deterministic and local until the agent layer:
 
@@ -108,7 +108,7 @@ Keep database work deterministic and local until the agent layer:
   validation before execution, SQL without semicolons, semicolon repair by
   validating again, business-language explanation, and caveats.
 
-## Lab 05: Voice And Realtime Agent
+## Lab 07: Voice And Realtime Agent
 
 Keep Python voice and browser realtime as separate architectures:
 

@@ -1,0 +1,16 @@
+[project]
+name = "sandboxagent-sampler"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["openai-agents>=0.23.1", "python-dotenv>=1.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+# The lab is a folder of runnable scripts, not an importable package.
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

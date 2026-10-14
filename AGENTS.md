@@ -9,12 +9,14 @@ Expected structure:
 ```text
 lab-00-codex-workflow/
 lab-01-agent-basics/
-lab-02-handoffs-patterns/
-lab-03-sandboxagent-sampler/
-lab-04-sql-analyzer/
-lab-05-realtime-voice-agent/
-chapter-10/
-  openai-dashboard-monitoring/
+lab-02-vector-store/
+lab-03-code-interpreter/
+lab-04-handoffs-patterns/
+lab-05-openai-dashboard-monitoring/
+lab-06-multi-agent-architecture-visualization/
+lab-07-realtime-voice-agent/
+lab-08-sandboxagent/
+lab-09-sql-analyzer/
 replay-environment/
   .agents/
     skills/
@@ -27,7 +29,7 @@ replay-environment/
 When carving this folder out into a dedicated repository, include:
 
 - `AGENTS.md`
-- `lab-00-*` through `lab-05-*`
+- all `lab-*` folders
 - `replay-environment/`
 - repository-level guides such as `README.md`, `prompts-index.md`,
   `run-reference-guide.md`, and `reference-test-guide.md`
@@ -55,9 +57,11 @@ Each `reference-solution/` should contain:
 - Use the OpenAI Agents SDK directly. Do not hide the SDK behind
   course-specific framework abstractions such as custom runner, workflow, or
   base-agent layers.
+- Require OpenAI Agents SDK `openai-agents>=0.23.1` in every lab's
+  `pyproject.toml` or `requirements.txt`; exact pins must be 0.23.1 or newer.
 - Lab 00 is Codex workflow only.
-- Labs 01-02 and 04-05 use SDK `Agent` objects.
-- Lab 03 uses SDK `SandboxAgent`.
+- Labs 01-07, 09, and 10 use SDK `Agent` objects.
+- Lab 08 uses SDK `SandboxAgent`.
 - Keep important SDK objects visible in the labs: `Agent`, `SandboxAgent`,
   `Runner`, `RunConfig`, `SandboxRunConfig`, tools, handoffs, guardrails,
   sessions, `RunState`, tracing, and tracing metadata.
@@ -69,9 +73,8 @@ Each `reference-solution/` should contain:
 - API-backed demos should require `OPENAI_API_KEY`, but local tests must run
   without making model calls.
 
-Chapter-based labs are being introduced starting with Chapter 10. Keep new
-chapter-based labs under `chapter-<number>/lab-<number>-<topic>/`; existing
-numbered lab folders stay in place until the planned repository reorganization.
+Keep every lab at the repository root as `lab-<number>-<topic>/`, using a
+two-digit lab number.
 
 ## Skill And SDK Reference
 
@@ -152,7 +155,7 @@ Lab 01:
   function tools, guardrails, and sessions.
 - Runnable demos should print `final_output` and show useful run artifacts.
 
-Lab 02:
+Lab 04:
 
 - Include both handoffs and agents-as-tools variants.
 - Handoff examples must use real SDK `handoffs=[...]`.
@@ -160,7 +163,7 @@ Lab 02:
 - Runners should print final output, `last_agent`, and captured tool outputs
   where relevant.
 
-Lab 03:
+Lab 08:
 
 - Use SDK `SandboxAgent`.
 - Use Unix-local sandbox configuration unless the lab explicitly says otherwise:
@@ -171,7 +174,7 @@ Lab 03:
   so UnixLocal works in macOS permission-restricted folders.
 - Provide streamed progress output with `Runner.run_streamed` for the demo.
 
-Lab 04:
+Lab 09:
 
 - Use `Agent[SqlAnalyzerContext]` and pass the database dependency through
   `Runner.run(..., context=...)`.
@@ -185,7 +188,7 @@ Lab 04:
 - Instruct the agent to generate SQL without semicolons and to repair a
   semicolon-only validation failure by validating again before execution.
 
-Lab 05:
+Lab 07:
 
 - Keep the reusable text agent as a real SDK `Agent`.
 - Use the Python SDK `VoicePipeline` path for chained speech-to-text, agent
@@ -196,7 +199,7 @@ Lab 05:
   receive only an ephemeral realtime client secret.
 - Local tests must not require audio hardware or call the OpenAI API.
 
-Chapter 10 Lab 10:
+Lab 05:
 
 - Use one SDK `Agent` connected to a local stdio MCP server with two
   deterministic mock tools: weather for five fixed cities and public pool
@@ -205,7 +208,7 @@ Chapter 10 Lab 10:
   their traces can be inspected together in the OpenAI dashboard.
 - Identify all weather and pool data as synthetic/mock data.
 
-Chapter 10 Lab 11:
+Lab 06:
 
 - Use `agents.extensions.visualization.draw_graph` from the `openai-agents[viz]`
   extra to render a real SDK Agent handoff graph to PNG.

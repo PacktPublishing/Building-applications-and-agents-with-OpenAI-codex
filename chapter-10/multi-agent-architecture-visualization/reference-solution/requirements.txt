@@ -1,2 +1,0 @@
-openai-agents[viz]==0.17.2
-pytest>=8

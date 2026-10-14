@@ -1,0 +1,5 @@
+openai-agents>=0.23.1
+python-dotenv>=1.0
+mcp>=1.19,<2
+pytest>=8
+pytest-asyncio>=0.23
