@@ -1,0 +1,110 @@
+"""Prepare a CLI-managed CodeZip project locally; never deploy or read API keys."""
+
+import argparse
+import json
+from pathlib import Path
+import re
+import shutil
+import subprocess
+
+ROOT = Path(__file__).resolve().parent
+PROJECT_NAME = "Lab12"
+CLI_VERSION = "0.31.1"
+RUNTIME_FILES = ("agent.py", "runtime_app.py", "credentials.py", "telemetry.py")
+MARKER = ".lab12-prepared"
+
+
+def validate_target(account: str, region: str, secret_arn: str) -> None:
+    if not re.fullmatch(r"\d{12}", account):
+        raise ValueError("Account ID must contain exactly 12 digits")
+    if not re.fullmatch(r"[a-z]{2}-[a-z]+-\d", region):
+        raise ValueError("Use a commercial AWS Region, such as us-east-1")
+    if not re.fullmatch(rf"arn:aws:secretsmanager:{re.escape(region)}:{account}:secret:[A-Za-z0-9/_+=.@-]+", secret_arn):
+        raise ValueError("Secret ARN must belong to the selected account and Region")
+
+
+def write_project(project: Path, account: str, region: str, secret_arn: str, model: str) -> None:
+    """Sync the lab's runtime and settings while preserving CLI deployment state."""
+    validate_target(account, region, secret_arn)
+    config_path = project / "agentcore/agentcore.json"
+    config = json.loads(config_path.read_text())
+    runtime = json.loads((ROOT / "deployment-config.json").read_text())
+    for env in runtime["envVars"]:
+        if env["name"] == "OPENAI_MODEL":
+            env["value"] = model
+    runtime["envVars"].append({"name": "OPENAI_API_KEY_SECRET_ARN", "value": secret_arn})
+    app = project / runtime["codeLocation"]
+    if app.is_symlink():
+        raise ValueError("Deployment source must not contain symbolic links")
+    app.mkdir(parents=True, exist_ok=True)
+    # Refuse unexpected source files: the CLI packages this whole directory.
+    allowed = {*RUNTIME_FILES, "pyproject.toml", "policies"}
+    unexpected = {path.name for path in app.iterdir()} - allowed
+    policy_dir = app / "policies"
+    if policy_dir.exists():
+        unexpected |= {str(path.relative_to(app)) for path in policy_dir.iterdir()
+                       if path.name != "openai-secret.json" or not path.is_file()}
+    if any(path.is_symlink() for path in app.rglob("*")):
+        raise ValueError("Deployment source must not contain symbolic links")
+    if unexpected:
+        raise ValueError(f"Remove unexpected files from deployment source first: {sorted(unexpected)}")
+    config["runtimes"] = [runtime]
+    config_path.write_text(json.dumps(config, indent=2) + "\n")
+    targets = [{"name": "default", "account": account, "region": region}]
+    (project / "agentcore/aws-targets.json").write_text(json.dumps(targets, indent=2) + "\n")
+    for filename in RUNTIME_FILES:
+        shutil.copyfile(ROOT / filename, app / filename)
+    dependencies = [line.strip() for line in (ROOT / "requirements.lock").read_text().splitlines()
+                    if line.strip() and not line.lstrip().startswith("#")]
+    # CodeZip reads pyproject.toml, so preserve every pinned transitive requirement.
+    pyproject = '[project]\nname = "lab12-course-assistant"\nversion = "0.1.0"\nrequires-python = ">=3.12,<3.13"\ndependencies = [\n'
+    pyproject += "".join(f"  {json.dumps(dependency)},\n" for dependency in dependencies) + "]\n"
+    (app / "pyproject.toml").write_text(pyproject)
+    policy = {"Version": "2012-10-17", "Statement": [{"Sid": "ReadOpenAIKey", "Effect": "Allow",
+              "Action": ["secretsmanager:GetSecretValue"], "Resource": secret_arn},
+              {"Sid": "ReadCodeZip", "Effect": "Allow", "Action": ["s3:GetObject"],
+               "Resource": f"arn:aws:s3:::cdk-hnb659fds-assets-{account}-{region}/*.zip"}]}
+    (app / "policies").mkdir(exist_ok=True)
+    (app / "policies/openai-secret.json").write_text(json.dumps(policy, indent=2) + "\n")
+
+
+def prepare(project: Path, account: str, region: str, secret_arn: str, model: str, cli: str) -> None:
+    validate_target(account, region, secret_arn)
+    if project.name != PROJECT_NAME:
+        raise ValueError("The --output-dir path must end in Lab12")
+    version = subprocess.run([cli, "--version"], check=True, capture_output=True, text=True).stdout.strip()
+    if version != CLI_VERSION:
+        raise ValueError(f"This lab requires @aws/agentcore@{CLI_VERSION}; found {version}")
+    if project.exists():
+        if not (project / MARKER).is_file():
+            raise ValueError("Refusing to overwrite a project not prepared by this lab")
+        targets = json.loads((project / "agentcore/aws-targets.json").read_text())
+        if targets != [{"name": "default", "account": account, "region": region}]:
+            raise ValueError("Use a new --output-dir for a different AWS account or Region")
+    else:
+        subprocess.run([cli, "create", "--name", PROJECT_NAME, "--no-agent", "--output-dir", str(project.parent),
+                        "--skip-install", "--skip-git", "--json"], check=True)
+        (project / MARKER).write_text("Generated by Lab 12 prepare_cli.py\n")
+    write_project(project, account, region, secret_arn, model)
+    subprocess.run([cli, "validate"], cwd=project, check=True)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--account-id", required=True)
+    parser.add_argument("--region", required=True)
+    parser.add_argument("--secret-arn", required=True)
+    parser.add_argument("--model", default="gpt-6-luna")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "deployment/Lab12")
+    parser.add_argument("--agentcore", default=shutil.which("agentcore") or "agentcore")
+    args = parser.parse_args()
+    try:
+        project = args.output_dir.resolve()
+        prepare(project, args.account_id, args.region, args.secret_arn, args.model, args.agentcore)
+    except (ValueError, FileNotFoundError, subprocess.CalledProcessError) as exc:
+        parser.exit(1, f"Preparation failed: {exc}\n")
+    print(f"Prepared {project}\nNext: cd {project}\nThen: agentcore deploy")
+
+
+if __name__ == "__main__":
+    main()

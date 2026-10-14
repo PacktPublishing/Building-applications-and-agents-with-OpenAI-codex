@@ -133,3 +133,30 @@ uv pip install -r requirements.txt
 The tests verify the three SDK Agent objects, exactly two handoffs, and both
 graph edges. PNG rendering is verified when the system `dot` executable is
 installed. The exporter does not make model calls.
+
+## Chapter 10 Lab 12 AgentCore and ADOT checks
+
+```bash
+cd chapter-10/lab-12-agentcore-runtime/reference-solution
+uv venv --python 3.12 .venv
+uv pip sync --python .venv/bin/python requirements.lock
+uv pip install --python .venv/bin/python -r requirements-dev.txt
+.venv/bin/python -m pytest -q
+```
+
+Offline checks validate SDK/tool contracts, HTTP endpoints, credentials,
+AWS invocation arguments, deployment configuration, a real SDK/tool loop
+through a mock HTTP transport, and real instrumentation spans. A subprocess
+also verifies ADOT CLI bootstrap with console export and no network calls.
+
+The live OpenAI test skips by default even when credentials exist. Opt in:
+
+```bash
+RUN_AGENTCORE_OPENAI_SMOKE=1 .venv/bin/python -m pytest -q tests/test_openai_integration.py
+```
+
+This requires `OPENAI_API_KEY` and makes model calls without deploying to AWS.
+CloudWatch ingestion requires the separate live acceptance checklist in the
+[runbook](chapter-10/lab-12-agentcore-runtime/reference-solution/README.md).
+The runbook also documents `agentcore validate` and `agentcore package` for
+CLI project/schema and Linux ARM64 package checks without cloud deployment.

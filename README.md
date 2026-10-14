@@ -69,6 +69,7 @@ See its reference README for setup.
 | [08](lab-08-code-interpreter/lab-brief.md) | CSV to Diagram with Code Interpreter | Turn synthetic sales data into a downloadable chart using hosted Python execution |
 | 10 | [Monitor Agent Runs in the OpenAI Dashboard](chapter-10/openai-dashboard-monitoring/lab-brief.md) | Connect two local mock MCP tools and group related agent traces with a shared `group_id` |
 | 11 | [Visualize a Multi-Agent Handoff Architecture](chapter-10/multi-agent-architecture-visualization/lab-brief.md) | Draw two successive SDK handoffs and export a PNG with `openai-agents[viz]` |
+| 12 | [Deploy an OpenAI Agent on AgentCore Runtime](chapter-10/lab-12-agentcore-runtime/lab-brief.md) | Deploy with the AgentCore CLI and send OpenAI Agents instrumentation through ADOT to CloudWatch |
 
 ## Reproducible Prompts
 

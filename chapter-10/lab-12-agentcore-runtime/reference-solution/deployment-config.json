@@ -1,0 +1,29 @@
+{
+  "name": "CourseAssistant",
+  "build": "CodeZip",
+  "entrypoint": "runtime_app.py",
+  "codeLocation": "app/CourseAssistant/",
+  "runtimeVersion": "PYTHON_3_12",
+  "networkMode": "PUBLIC",
+  "protocol": "HTTP",
+  "authorizerType": "AWS_IAM",
+  "instrumentation": {"enableOtel": true},
+  "lifecycleConfiguration": {"idleRuntimeSessionTimeout": 300, "maxLifetime": 1800},
+  "additionalPolicies": ["policies/openai-secret.json"],
+  "envVars": [
+    {"name": "OPENAI_MODEL", "value": "gpt-6-luna"},
+    {"name": "AGENT_OBSERVABILITY_ENABLED", "value": "true"},
+    {"name": "OTEL_PYTHON_DISTRO", "value": "aws_distro"},
+    {"name": "OTEL_PYTHON_CONFIGURATOR", "value": "aws_configurator"},
+    {"name": "OTEL_PYTHON_DISABLED_INSTRUMENTATIONS", "value": "openai_agents"},
+    {"name": "OTEL_EXPORTER_OTLP_PROTOCOL", "value": "http/protobuf"},
+    {"name": "OTEL_TRACES_EXPORTER", "value": "otlp"},
+    {"name": "OTEL_TRACES_SAMPLER", "value": "always_on"},
+    {"name": "OTEL_LOGS_EXPORTER", "value": "otlp"},
+    {"name": "OTEL_METRICS_EXPORTER", "value": "awsemf"},
+    {"name": "OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED", "value": "true"},
+    {"name": "UNIFIED_TRACES_DESTINATION_ENABLED", "value": "true"},
+    {"name": "AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT", "value": "true"},
+    {"name": "TRACELOOP_TRACE_CONTENT", "value": "true"}
+  ]
+}

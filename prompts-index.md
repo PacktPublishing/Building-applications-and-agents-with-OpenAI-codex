@@ -16,6 +16,7 @@ reference implementations.
 | 08 | [CSV to Diagram with Code Interpreter](lab-08-code-interpreter/prompt-pack.md) |
 | 10 | [Monitor Agent Runs in the OpenAI Dashboard](chapter-10/openai-dashboard-monitoring/prompt-pack.md) |
 | 11 | [Visualize a Multi-Agent Handoff Architecture](chapter-10/multi-agent-architecture-visualization/prompt-pack.md) |
+| 12 | [OpenAI Agent on AgentCore Runtime with ADOT](chapter-10/lab-12-agentcore-runtime/prompt-pack.md) |
 
 Prompt packs are part of the lab deliverable. When a reference solution is
 rebuilt, record prompt IDs and verification in that lab's `BUILD-LOG.md`.

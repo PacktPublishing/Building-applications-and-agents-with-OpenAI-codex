@@ -174,3 +174,22 @@ uv pip install -r requirements.txt
 This makes no API calls and writes `outputs/multi-agent-handoffs.png`. Install
 the native Graphviz executable first; see the
 [lab README](chapter-10/multi-agent-architecture-visualization/reference-solution/README.md).
+
+## Chapter 10 Lab 12 AgentCore Runtime
+
+Use an isolated Python 3.12 environment:
+
+```bash
+cd chapter-10/lab-12-agentcore-runtime/reference-solution
+uv venv --python 3.12 .venv
+uv pip sync --python .venv/bin/python requirements.lock
+uv pip install --python .venv/bin/python -r requirements-dev.txt
+.venv/bin/python run_reference.py
+```
+
+The demo skips cleanly without credentials; with `OPENAI_API_KEY`, it calls
+OpenAI using the SDK agent and synthetic course tool. Follow the
+[deployment runbook](chapter-10/lab-12-agentcore-runtime/reference-solution/README.md)
+for an ADOT-instrumented local HTTP server, Secrets Manager key, AgentCore CLI
+CodeZip deployment and invocation, CloudWatch trace inspection,
+and cleanup. Cloud deployment is a separate exercise that incurs usage charges.

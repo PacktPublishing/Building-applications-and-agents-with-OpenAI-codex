@@ -1,0 +1,10 @@
+# Validated together in this lab; keep independent of the root course environment.
+openai-agents==0.23.1
+bedrock-agentcore==1.24.0
+aws-opentelemetry-distro==0.21.0
+opentelemetry-instrumentation-openai-agents==0.62.4
+boto3==1.43.108
+# Required by botocore's aws-login credential provider; also supports CRT signing.
+botocore[crt]==1.43.108
+pydantic==2.13.5
+python-dotenv==1.2.2
