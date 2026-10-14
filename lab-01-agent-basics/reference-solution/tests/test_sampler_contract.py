@@ -36,5 +36,5 @@ def test_sqlite_session_can_be_constructed(tmp_path) -> None:
 
 def test_run_config_is_visible_sdk_object() -> None:
     config = build_run_config()
-    assert config.workflow_name == "lab-01-agents-sdk-sampler"
+    assert config.workflow_name == "lab-01-agent-basics"
     assert config.trace_metadata["lab"] == "01"

@@ -1,2 +1,3 @@
 openai-agents==0.17.2
 openai==2.36.0
+python-dotenv==1.2.2

@@ -7,6 +7,7 @@ from pathlib import Path
 
 from agents import Agent, RunConfig, Runner
 from agents.mcp import MCPServerStdio
+from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent
 GROUP_ID = "chapter-10-monitoring-demo"
@@ -34,6 +35,7 @@ def build_run_config() -> RunConfig:
 
 
 async def main() -> int:
+    load_dotenv()
     if not os.getenv("OPENAI_API_KEY"):
         print("SKIP: set OPENAI_API_KEY to run the model-backed demo.")
         return 0

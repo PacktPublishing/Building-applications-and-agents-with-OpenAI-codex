@@ -4,6 +4,8 @@ import argparse
 import asyncio
 import os
 
+from dotenv import load_dotenv
+
 from agents_sampler.first_agent import run_demo
 from agents_sampler.function_tool_demo import answer_plan_question
 from agents_sampler.guardrail_demo import answer_domain_question
@@ -17,6 +19,7 @@ def require_api_key() -> None:
 
 
 async def main() -> None:
+    load_dotenv()
     parser = argparse.ArgumentParser(description="Run Lab 01 Agents SDK sampler demos.")
     parser.add_argument(
         "demo",

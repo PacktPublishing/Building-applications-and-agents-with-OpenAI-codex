@@ -14,6 +14,7 @@ import tempfile
 from agents import Agent, CodeInterpreterTool, ModelSettings, RunConfig, Runner, RunResult
 from agents.exceptions import AgentsException
 from agents.models.openai_provider import OpenAIProvider
+from dotenv import load_dotenv
 from openai import AsyncOpenAI, OpenAIError
 from openai.types.responses import ResponseCodeInterpreterToolCall, ResponseOutputMessage
 
@@ -114,6 +115,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 async def main(argv: list[str] | None = None) -> int:
+    load_dotenv()
     args = parse_args(argv)
     key = os.environ.get("OPENAI_API_KEY", "").strip()
     if not key:

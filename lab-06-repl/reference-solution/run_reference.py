@@ -4,6 +4,7 @@ import argparse
 import asyncio
 import os
 from agents import Agent, run_demo_loop
+from dotenv import load_dotenv
 
 
 def build_agent() -> Agent:
@@ -21,6 +22,7 @@ def build_agent() -> Agent:
 
 
 async def main() -> None:
+    load_dotenv()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--no-stream", action="store_true", help="Print each complete reply instead of streaming."

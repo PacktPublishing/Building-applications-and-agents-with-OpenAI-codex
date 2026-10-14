@@ -8,6 +8,7 @@ import os
 from collections.abc import Sequence
 
 import numpy as np
+from dotenv import load_dotenv
 
 from .agent import build_voice_agent
 from .voice import (
@@ -75,6 +76,7 @@ async def _run_demo(seconds: float, record: bool, playback: bool) -> int:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    load_dotenv()
     args = build_parser().parse_args(argv)
     if args.seconds <= 0:
         print("--seconds must be greater than zero.")
