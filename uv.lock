@@ -341,7 +341,7 @@ wheels = [
 [[package]]
 name = "handoffs-patterns"
 version = "0.1.0"
-source = { editable = "lab-002-handoffs-patterns/reference-solution" }
+source = { editable = "lab-04-handoffs-patterns/reference-solution" }
 dependencies = [
     { name = "openai-agents" },
     { name = "pydantic" },
@@ -618,7 +618,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "agents-sdk-sampler", editable = "lab-01-agent-basics/reference-solution" },
-    { name = "handoffs-patterns", editable = "lab-002-handoffs-patterns/reference-solution" },
+    { name = "handoffs-patterns", editable = "lab-04-handoffs-patterns/reference-solution" },
     { name = "openai-agents", specifier = ">=0.23.1" },
     { name = "realtime-voice-agent", editable = "lab-005-realtime-voice-agent/reference-solution" },
     { name = "sql-analyzer-agent", editable = "lab-004-sql-analyzer/reference-solution" },

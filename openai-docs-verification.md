@@ -34,7 +34,7 @@ Verification date: 2026-05-29
 
 - Lab 01: first agent, tools, guardrails, sessions, structured output,
   `RunConfig`.
-- Lab 002: handoffs and agents-as-tools.
+- Lab 04: handoffs and agents-as-tools.
 - Lab 003: `SandboxAgent` with Unix-local `SandboxRunConfig`.
 - Lab 004: SQL analyzer Agent with read-only function tools, local context, and
   structured output.

@@ -35,7 +35,7 @@ def test_scenarios_cover_expected_routes() -> None:
 
 
 def test_run_config_is_visible_sdk_object() -> None:
-    assert build_run_config().workflow_name == "lab-02-handoffs-patterns"
+    assert build_run_config().workflow_name == "lab-04-handoffs-patterns"
 
 
 def test_collect_tool_outputs_reads_sdk_run_items() -> None:

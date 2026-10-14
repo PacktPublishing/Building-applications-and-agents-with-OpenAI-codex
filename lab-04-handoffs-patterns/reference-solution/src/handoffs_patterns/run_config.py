@@ -5,6 +5,6 @@ from agents import RunConfig
 
 def build_run_config() -> RunConfig:
     return RunConfig(
-        workflow_name="lab-02-handoffs-patterns",
-        trace_metadata={"lab": "02", "course": "mastering-openai-agents"},
+        workflow_name="lab-04-handoffs-patterns",
+        trace_metadata={"lab": "04", "course": "mastering-openai-agents"},
     )

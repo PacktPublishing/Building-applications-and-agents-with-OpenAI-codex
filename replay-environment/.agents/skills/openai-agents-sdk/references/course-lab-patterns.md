@@ -1,4 +1,4 @@
-# Course Lab Patterns From Labs 01 and 002-005
+# Course Lab Patterns From Labs 01, 04, and 003-005
 
 Use these notes when rebuilding or extending the course labs. They preserve
 reference-level implementation decisions that are easy to lose during replay.
@@ -19,7 +19,7 @@ Teach the smallest direct SDK surfaces first:
 - For session memory, compare stateless runs with SDK `Session`-backed runs.
   This is conversation history memory, not SandboxAgent workspace memory.
 
-## Lab 002: Handoffs And Agents As Tools
+## Lab 04: Handoffs And Agents As Tools
 
 Teach both orchestration patterns explicitly:
 

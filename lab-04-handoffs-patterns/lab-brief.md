@@ -1,4 +1,4 @@
-# Lab 02: Handoffs and Agents-as-Tools
+# Lab 04: Handoffs and Agents-as-Tools
 
 ## Goal
 

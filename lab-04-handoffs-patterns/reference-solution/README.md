@@ -1,6 +1,6 @@
 # Handoffs Patterns
 
-Reference solution for Lab 02.
+Reference solution for Lab 04.
 
 The project builds the same customer-support scenario twice:
 

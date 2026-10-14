@@ -69,10 +69,10 @@ For another compatible synthetic CSV:
 See the [Code Interpreter runbook](lab-03-code-interpreter/reference-solution/README.md)
 for schema, setup, generated artifact inspection, and cleanup recovery.
 
-## Lab 002
+## Lab 04
 
 ```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-002-handoffs-patterns/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-04-handoffs-patterns/reference-solution
 uv run python run_reference.py handoff
 uv run python run_reference.py tools
 ```

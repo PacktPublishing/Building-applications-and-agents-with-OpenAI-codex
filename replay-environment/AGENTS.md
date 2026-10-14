@@ -20,7 +20,7 @@ README.md
       openai-agents-python/
 labs/
   lab-01-agent-basics/prompt-pack.md
-  lab-002-handoffs-patterns/prompt-pack.md
+  lab-04-handoffs-patterns/prompt-pack.md
   lab-003-sandboxagent-sampler/prompt-pack.md
   lab-004-sql-analyzer/prompt-pack.md
 solutions/
@@ -89,7 +89,7 @@ Lab 01:
 - Use direct SDK `Agent`, `Runner.run`, `RunConfig`, structured outputs,
   function tools, guardrails, and sessions.
 
-Lab 002:
+Lab 04:
 
 - Include both real SDK handoffs and `agent.as_tool(...)` variants.
 - Print final output, `last_agent`, and captured specialist tool outputs where

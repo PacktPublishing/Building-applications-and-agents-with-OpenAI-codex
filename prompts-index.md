@@ -9,7 +9,7 @@ reference implementations.
 | 01 | `lab-01-agent-basics/prompt-pack.md` |
 | 02 | [OpenAI Vector Store](lab-02-vector-store/prompt-pack.md) |
 | 03 | [CSV to Diagram with Code Interpreter](lab-03-code-interpreter/prompt-pack.md) |
-| 002 | `lab-002-handoffs-patterns/prompt-pack.md` |
+| 04 | `lab-04-handoffs-patterns/prompt-pack.md` |
 | 003 | `lab-003-sandboxagent-sampler/prompt-pack.md` |
 | 004 | `lab-004-sql-analyzer/prompt-pack.md` |
 | 005 | `lab-005-realtime-voice-agent/prompt-pack.md` |

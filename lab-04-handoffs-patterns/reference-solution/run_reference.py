@@ -17,7 +17,7 @@ def require_api_key() -> None:
 
 async def main() -> None:
     load_dotenv()
-    parser = argparse.ArgumentParser(description="Run Lab 02 orchestration demos.")
+    parser = argparse.ArgumentParser(description="Run Lab 04 orchestration demos.")
     parser.add_argument("mode", choices=["handoff", "tools"], help="Orchestration pattern.")
     parser.add_argument(
         "--prompt",

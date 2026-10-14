@@ -7,7 +7,7 @@ Codex is the construction partner. OpenAI Agents and SandboxAgents are the
 subject matter.
 
 The reference implementations are SDK-first: Lab 00 teaches Codex workflow,
-Labs 01-03, 002, and 004-006 use direct OpenAI Agents SDK `Agent` flows, and Lab 003 uses
+Labs 01-04 and 004-006 use direct OpenAI Agents SDK `Agent` flows, and Lab 003 uses
 direct SDK `SandboxAgent` with Unix-local `SandboxRunConfig`.
 
 All text-based Agent and SandboxAgent references explicitly default to
@@ -62,7 +62,7 @@ See its reference README for setup.
 | 01 | Agents SDK Sampler | Touch the core SDK primitives in small examples |
 | [02](lab-02-vector-store/lab-brief.md) | OpenAI Vector Store | Build document Q&A with hosted retrieval, file citations, and resource cleanup |
 | [03](lab-03-code-interpreter/lab-brief.md) | CSV to Diagram with Code Interpreter | Turn synthetic sales data into a downloadable chart using hosted Python execution |
-| 002 | Handoffs Patterns | Compare handoffs and agents-as-tools |
+| 04 | Handoffs Patterns | Compare handoffs and agents-as-tools |
 | 003 | SandboxAgent Sampler | Show workspace, shell, skills, memory, and resumption |
 | 004 | SQL Analyzer Agent | First full business reference solution |
 | 005 | Realtime Voice Agent | Compare Python voice pipelines with browser realtime sessions |
@@ -89,7 +89,7 @@ without running pytest.
 
 ## Recommended Build Order
 
-1. Use Labs 00-01, 002, and 003 before Lab 004 so you see Codex workflow,
+1. Use Labs 00-01, 04, and 003 before Lab 004 so you see Codex workflow,
    Agents SDK primitives, orchestration, and SandboxAgent concepts first.
 2. Use Lab 004 as the first full business reference solution.
 3. Use Lab 005 after you understand normal `Agent` objects; the voice lab

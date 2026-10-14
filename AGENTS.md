@@ -11,7 +11,7 @@ lab-00-codex-workflow/
 lab-01-agent-basics/
 lab-02-vector-store/
 lab-03-code-interpreter/
-lab-002-handoffs-patterns/
+lab-04-handoffs-patterns/
 lab-003-sandboxagent-sampler/
 lab-004-sql-analyzer/
 lab-005-realtime-voice-agent/
@@ -60,7 +60,7 @@ Each `reference-solution/` should contain:
 - Require OpenAI Agents SDK `openai-agents>=0.23.1` in every lab's
   `pyproject.toml` or `requirements.txt`; exact pins must be 0.23.1 or newer.
 - Lab 00 is Codex workflow only.
-- Labs 01-03, 002, and 004-005 use SDK `Agent` objects.
+- Labs 01-04 and 004-005 use SDK `Agent` objects.
 - Lab 003 uses SDK `SandboxAgent`.
 - Keep important SDK objects visible in the labs: `Agent`, `SandboxAgent`,
   `Runner`, `RunConfig`, `SandboxRunConfig`, tools, handoffs, guardrails,
@@ -156,7 +156,7 @@ Lab 01:
   function tools, guardrails, and sessions.
 - Runnable demos should print `final_output` and show useful run artifacts.
 
-Lab 002:
+Lab 04:
 
 - Include both handoffs and agents-as-tools variants.
 - Handoff examples must use real SDK `handoffs=[...]`.

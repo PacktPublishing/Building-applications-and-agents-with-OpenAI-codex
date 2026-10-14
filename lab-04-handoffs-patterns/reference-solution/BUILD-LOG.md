@@ -1,4 +1,4 @@
-# Build Log: Lab 02
+# Build Log: Lab 04
 
 ## Prompts Used
 
@@ -23,3 +23,11 @@
 
 - Raised the OpenAI Agents SDK floor to `openai-agents>=0.23.1` (resolved
   0.23.1 with `openai` 3.31.0). Offline tests pass; live API tests were not rerun.
+
+## Renumbering — Lab 02 to Lab 04
+
+- Renamed `lab-02-handoffs-patterns/` (temporarily `lab-002-handoffs-patterns/`)
+  to `lab-04-handoffs-patterns/`, and the replay prompt pack folder to
+  `replay-environment/labs/lab-04-handoffs-patterns/`.
+- Updated titles, `workflow_name`, trace metadata, the contract test, prompt
+  packs, and repository-level guides to Lab 04.

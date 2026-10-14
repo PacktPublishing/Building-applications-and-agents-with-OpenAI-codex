@@ -33,7 +33,7 @@ text-stats = { workspace = true }
 members = [
   "lab-00-codex-workflow/reference-solution",
   "lab-01-agent-basics/reference-solution",
-  "lab-002-handoffs-patterns/reference-solution",
+  "lab-04-handoffs-patterns/reference-solution",
   "lab-003-sandboxagent-sampler/reference-solution",
   "lab-004-sql-analyzer/reference-solution",
   "lab-005-realtime-voice-agent/reference-solution",
