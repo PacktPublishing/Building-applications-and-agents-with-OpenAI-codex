@@ -8,7 +8,7 @@ Expected structure:
 
 ```text
 lab-00-codex-workflow/
-lab-01-agents-sdk-sampler/
+lab-01-agent-basics/
 lab-02-handoffs-patterns/
 lab-03-sandboxagent-sampler/
 lab-04-sql-analyzer/

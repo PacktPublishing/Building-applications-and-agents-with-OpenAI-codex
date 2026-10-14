@@ -12,6 +12,7 @@ from agents import RunConfig, Runner
 from agents.run_config import SandboxRunConfig
 from agents.sandbox import LocalSnapshot
 from agents.sandbox.sandboxes.unix_local import UnixLocalSandboxClient
+from dotenv import load_dotenv
 
 from run_sandbox_demo import MODEL_ID, SOLUTION_ROOT, build_agent
 from sandbox_manifest import build_manifest
@@ -189,6 +190,8 @@ async def main(model: str) -> None:
 
 
 if __name__ == "__main__":
+    # Load .env before parsing: the --model default reads OPENAI_SANDBOX_MODEL.
+    load_dotenv()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", default=os.environ.get("OPENAI_SANDBOX_MODEL", MODEL_ID))
     asyncio.run(main(parser.parse_args().model))

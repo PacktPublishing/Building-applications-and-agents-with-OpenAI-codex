@@ -4,6 +4,8 @@ import argparse
 import asyncio
 import os
 
+from dotenv import load_dotenv
+
 from sql_analyzer.app import async_main
 
 
@@ -13,6 +15,8 @@ def require_api_key() -> None:
 
 
 if __name__ == "__main__":
+    # Load .env before require_api_key(); sql_analyzer.app only loads it later.
+    load_dotenv()
     parser = argparse.ArgumentParser(description="Run Lab 04 SQL Analyzer Agent demo.")
     parser.add_argument(
         "--question",

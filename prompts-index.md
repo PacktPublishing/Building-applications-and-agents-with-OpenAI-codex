@@ -6,7 +6,7 @@ reference implementations.
 | Lab | Prompt Pack |
 |---|---|
 | 00 | `lab-00-codex-workflow/prompt-pack.md` |
-| 01 | `lab-01-agents-sdk-sampler/prompt-pack.md` |
+| 01 | `lab-01-agent-basics/prompt-pack.md` |
 | 02 | `lab-02-handoffs-patterns/prompt-pack.md` |
 | 03 | `lab-03-sandboxagent-sampler/prompt-pack.md` |
 | 04 | `lab-04-sql-analyzer/prompt-pack.md` |

@@ -33,7 +33,7 @@ text-stats = { workspace = true }
 [tool.uv.workspace]
 members = [
   "lab-00-codex-workflow/reference-solution",
-  "lab-01-agents-sdk-sampler/reference-solution",
+  "lab-01-agent-basics/reference-solution",
   "lab-02-handoffs-patterns/reference-solution",
   "lab-03-sandboxagent-sampler/reference-solution",
   "lab-04-sql-analyzer/reference-solution",

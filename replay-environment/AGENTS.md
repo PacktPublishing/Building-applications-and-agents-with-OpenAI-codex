@@ -19,7 +19,7 @@ README.md
       references/
       openai-agents-python/
 labs/
-  lab-01-agents-sdk-sampler/prompt-pack.md
+  lab-01-agent-basics/prompt-pack.md
   lab-02-handoffs-patterns/prompt-pack.md
   lab-03-sandboxagent-sampler/prompt-pack.md
   lab-04-sql-analyzer/prompt-pack.md

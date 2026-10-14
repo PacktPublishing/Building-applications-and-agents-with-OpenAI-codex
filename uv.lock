@@ -16,7 +16,7 @@ members = [
 [[package]]
 name = "agents-sdk-sampler"
 version = "0.1.0"
-source = { editable = "lab-01-agents-sdk-sampler/reference-solution" }
+source = { editable = "lab-01-agent-basics/reference-solution" }
 dependencies = [
     { name = "openai-agents" },
     { name = "pydantic" },
@@ -558,7 +558,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "agents-sdk-sampler", editable = "lab-01-agents-sdk-sampler/reference-solution" },
+    { name = "agents-sdk-sampler", editable = "lab-01-agent-basics/reference-solution" },
     { name = "handoffs-patterns", editable = "lab-02-handoffs-patterns/reference-solution" },
     { name = "realtime-voice-agent", editable = "lab-05-realtime-voice-agent/reference-solution" },
     { name = "sandboxagent-sampler", editable = "lab-03-sandboxagent-sampler/reference-solution" },

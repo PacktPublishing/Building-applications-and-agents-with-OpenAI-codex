@@ -4,6 +4,8 @@ import argparse
 import asyncio
 import os
 
+from dotenv import load_dotenv
+
 from handoffs_patterns.agents_as_tools import run_manager_report
 from handoffs_patterns.agents_handoff import run_handoff
 
@@ -14,6 +16,7 @@ def require_api_key() -> None:
 
 
 async def main() -> None:
+    load_dotenv()
     parser = argparse.ArgumentParser(description="Run Lab 02 orchestration demos.")
     parser.add_argument("mode", choices=["handoff", "tools"], help="Orchestration pattern.")
     parser.add_argument(

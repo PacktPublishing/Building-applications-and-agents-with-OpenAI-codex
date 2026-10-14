@@ -16,6 +16,7 @@ from agents.sandbox.entries import Dir
 from agents.run_config import SandboxRunConfig
 from agents.sandbox import LocalSnapshotSpec
 from agents.sandbox.sandboxes.unix_local import UnixLocalSandboxClient
+from dotenv import load_dotenv
 
 from sandbox_instructions import SANDBOX_AGENT_INSTRUCTIONS
 from sandbox_manifest import build_manifest, build_unix_local_run_config
@@ -59,6 +60,7 @@ def build_agent(
 
 
 async def main() -> None:
+    load_dotenv()
     parser = argparse.ArgumentParser(description="Debug the calculator in a UnixLocal sandbox.")
     parser.add_argument(
         "--no-stream",

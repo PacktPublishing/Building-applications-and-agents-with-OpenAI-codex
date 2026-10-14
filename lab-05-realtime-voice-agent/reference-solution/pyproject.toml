@@ -11,6 +11,7 @@ requires-python = ">=3.10"
 dependencies = [
     "openai-agents[voice]",
     "numpy",
+    "python-dotenv>=1.0",
 ]
 
 [project.optional-dependencies]

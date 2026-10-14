@@ -22,7 +22,7 @@ uv run python run_reference.py README.md
 ## Lab 01
 
 ```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-01-agents-sdk-sampler/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-01-agent-basics/reference-solution
 uv run python run_reference.py first-agent
 uv run python run_reference.py structured
 uv run python run_reference.py tool
