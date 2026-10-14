@@ -81,7 +81,7 @@ uv run python run_reference.py tools
 
 ```bash
 cd Building-applications-and-agents-with-OpenAI-codex/lab-003-sandboxagent-sampler/reference-solution
-uv run python run_reference.py
+uv run python run_sandbox_demo.py
 ```
 
 This runs the SandboxAgent through UnixLocal `SandboxRunConfig` and streams
@@ -90,7 +90,7 @@ progress events, including model text, tool calls, and tool outputs.
 To run without streaming progress:
 
 ```bash
-uv run python run_reference.py --no-stream
+uv run python run_sandbox_demo.py --no-stream
 ```
 
 ## Lab 004

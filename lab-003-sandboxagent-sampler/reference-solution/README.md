@@ -7,12 +7,12 @@ sandbox root under `memories/`.
 
 ## Run the deterministic checks
 
-From the repository root, use an environment with the OpenAI Agents SDK
-installed:
+From this folder, uv installs the dependencies declared in `pyproject.toml`
+into the repository's workspace environment:
 
 ```sh
-python -m pytest replay-environment/solutions/lab-03-sandboxagent-sampler/tests
-python replay-environment/solutions/lab-03-sandboxagent-sampler/check_manifest.py
+uv run --extra dev pytest -q
+uv run python check_manifest.py
 ```
 
 The checks construct SDK objects and validate the relative manifest. They do
@@ -23,7 +23,7 @@ not make model calls.
 Set `OPENAI_API_KEY`, then run:
 
 ```sh
-python replay-environment/solutions/lab-03-sandboxagent-sampler/run_sandbox_demo.py
+uv run python run_sandbox_demo.py
 ```
 
 The streamed demo prints model and tool progress. It snapshots the Unix-local
@@ -37,15 +37,15 @@ sandbox directory. Use `--no-stream` for the `Runner.run` path and
 `memory-resumption-worksheet.md` describes the two-run exercise. Run it with:
 
 ```sh
-python replay-environment/solutions/lab-03-sandboxagent-sampler/run_memory_demo.py
+uv run python run_memory_demo.py
 ```
 
 It creates one snapshot for both runs and exports the final workspace to
 `artifacts/memory-demo-workspace/`. Inspect generated memory with:
 
 ```sh
-find replay-environment/solutions/lab-03-sandboxagent-sampler/artifacts/memory-demo-workspace/memories -type f
-cat replay-environment/solutions/lab-03-sandboxagent-sampler/artifacts/memory-demo-workspace/memories/MEMORY.md
+find artifacts/memory-demo-workspace/memories -type f
+cat artifacts/memory-demo-workspace/memories/MEMORY.md
 ```
 
 Unix-local workspaces are temporary. The demos export them before deletion so
