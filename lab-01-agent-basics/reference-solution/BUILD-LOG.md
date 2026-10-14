@@ -19,3 +19,8 @@
 
 - Set the text Agent/SandboxAgent default to `gpt-6-luna`; retained specialized voice and transcription models where applicable.
 - Offline verification after the update: 6 passed, 1 skipped.
+
+## SDK 0.23.1 update
+
+- Raised the OpenAI Agents SDK floor to `openai-agents>=0.23.1` (resolved
+  0.23.1 with `openai` 3.31.0). Offline tests pass; live API tests were not rerun.

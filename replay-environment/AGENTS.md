@@ -20,9 +20,9 @@ README.md
       openai-agents-python/
 labs/
   lab-01-agent-basics/prompt-pack.md
-  lab-02-handoffs-patterns/prompt-pack.md
-  lab-03-sandboxagent-sampler/prompt-pack.md
-  lab-04-sql-analyzer/prompt-pack.md
+  lab-002-handoffs-patterns/prompt-pack.md
+  lab-003-sandboxagent-sampler/prompt-pack.md
+  lab-004-sql-analyzer/prompt-pack.md
 solutions/
 ```
 
@@ -33,6 +33,8 @@ Build generated work into:
 ## SDK Rules
 
 - Use the OpenAI Agents SDK directly.
+- Require OpenAI Agents SDK `openai-agents>=0.23.1` in every lab's
+  `pyproject.toml` or `requirements.txt`; exact pins must be 0.23.1 or newer.
 - Do not create course-specific runner, workflow, or base-agent abstraction
   layers.
 - Keep SDK objects visible in code and tests: `Agent`, `SandboxAgent`,
@@ -87,13 +89,13 @@ Lab 01:
 - Use direct SDK `Agent`, `Runner.run`, `RunConfig`, structured outputs,
   function tools, guardrails, and sessions.
 
-Lab 02:
+Lab 002:
 
 - Include both real SDK handoffs and `agent.as_tool(...)` variants.
 - Print final output, `last_agent`, and captured specialist tool outputs where
   relevant.
 
-Lab 03:
+Lab 003:
 
 - Use SDK `SandboxAgent`.
 - Use Unix-local sandbox configuration:
@@ -102,7 +104,7 @@ Lab 03:
 - Prefer synthetic SDK `Dir` and `File` manifest entries for tiny lab repos.
 - Stream demo progress with `Runner.run_streamed`.
 
-Lab 04:
+Lab 004:
 
 - Use `Agent[SqlAnalyzerContext]`.
 - Pass the database dependency with `Runner.run(..., context=...)`.

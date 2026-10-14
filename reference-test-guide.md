@@ -9,35 +9,35 @@ schemas, SDK object construction, `RunConfig`, and the UnixLocal SandboxAgent
 configuration.
 
 ```bash
-for d in Building-applications-and-agents-with-OpenAI-codex/lab-{00,01,02,03,05}-*/reference-solution; do
+for d in Building-applications-and-agents-with-OpenAI-codex/lab-{00,01,002,003,005}-*/reference-solution; do
   echo "== $d"
   (cd "$d" && uv run --with pytest pytest -q) || exit 1
 done
 
-cd Building-applications-and-agents-with-OpenAI-codex/lab-04-sql-analyzer/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-004-sql-analyzer/reference-solution
 uv run --with pytest pytest -q
 ```
 
 ## 2. OpenAI API Smoke Tests
 
-These tests call the OpenAI API for Labs 01–05. Lab 06 uses a manual live exercise. Set `OPENAI_API_KEY` first.
+These tests call the OpenAI API for Labs 01 and 002–005. Lab 006 uses a manual live exercise. Set `OPENAI_API_KEY` first.
 Set `REQUIRE_OPENAI_API=1` so missing credentials fail instead of skipping.
 
 ```bash
 export OPENAI_API_KEY="sk-..."
 export REQUIRE_OPENAI_API=1
 
-for d in Building-applications-and-agents-with-OpenAI-codex/lab-{01,02,03,05}-*/reference-solution; do
+for d in Building-applications-and-agents-with-OpenAI-codex/lab-{01,002,003,005}-*/reference-solution; do
   echo "== $d"
   (cd "$d" && uv run --with pytest pytest -q tests/test_openai_integration.py) || exit 1
 done
 
-cd Building-applications-and-agents-with-OpenAI-codex/lab-04-sql-analyzer/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-004-sql-analyzer/reference-solution
 uv run --with pytest pytest -q
 ```
 
-Lab 04 includes an API-backed test in
-`lab-04-sql-analyzer/reference-solution`; it skips only when `OPENAI_API_KEY`
+Lab 004 includes an API-backed test in
+`lab-004-sql-analyzer/reference-solution`; it skips only when `OPENAI_API_KEY`
 is absent.
 
 ## What This Proves
@@ -46,27 +46,15 @@ is absent.
   logic is reliable.
 - OpenAI API smoke tests prove each SDK lab actually reaches OpenAI through
   `Runner.run(...)`.
-- Lab 03 proves the SandboxAgent path reaches OpenAI while using UnixLocal
+- Lab 003 proves the SandboxAgent path reaches OpenAI while using UnixLocal
   `SandboxRunConfig`.
 
-## Lab 06 REPL offline checks
+## Lab 02 vector store checks
 
 From the repository root with the existing synced environment:
 
 ```bash
-cd lab-06-repl/reference-solution
-../../.venv/bin/python -m unittest discover -s tests -v
-```
-
-Live behavior is checked with the [manual REPL exercise](lab-06-repl/lab-brief.md);
-mocked offline checks do not prove model responses.
-
-## Lab 07 vector store checks
-
-From the repository root with the existing synced environment:
-
-```bash
-cd lab-07-vector-store/reference-solution
+cd lab-02-vector-store/reference-solution
 ../../.venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -81,14 +69,14 @@ RUN_VECTOR_STORE_SMOKE=1 REQUIRE_OPENAI_API=1 ../../.venv/bin/python -m unittest
 This creates a temporary store and three fictional uploads, checks filtered
 retrieval and an agent answer with file citations, and attempts cleanup in
 `finally`. A failed cleanup prints the retained manifest path. See the
-[lab runbook](lab-07-vector-store/reference-solution/README.md#verification).
+[lab runbook](lab-02-vector-store/reference-solution/README.md#verification).
 
-## Lab 08 Code Interpreter checks
+## Lab 03 Code Interpreter checks
 
 From the repository root with the existing synced environment:
 
 ```bash
-cd lab-08-code-interpreter/reference-solution
+cd lab-03-code-interpreter/reference-solution
 ../../.venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -105,7 +93,19 @@ RUN_CODE_INTERPRETER_SMOKE=1 REQUIRE_OPENAI_API=1 ../../.venv/bin/python -m unit
 It verifies real Code Interpreter execution, downloaded PNG header/dimensions,
 all twelve monthly totals against independent Decimal arithmetic, and cleanup.
 The chart is retained for visual inspection. See the
-[Code Interpreter verification guide](lab-08-code-interpreter/reference-solution/README.md#verification).
+[Code Interpreter verification guide](lab-03-code-interpreter/reference-solution/README.md#verification).
+
+## Lab 006 REPL offline checks
+
+From the repository root with the existing synced environment:
+
+```bash
+cd lab-006-repl/reference-solution
+../../.venv/bin/python -m unittest discover -s tests -v
+```
+
+Live behavior is checked with the [manual REPL exercise](lab-006-repl/lab-brief.md);
+mocked offline checks do not prove model responses.
 
 ## Chapter 10 Lab 10 dashboard monitoring checks
 

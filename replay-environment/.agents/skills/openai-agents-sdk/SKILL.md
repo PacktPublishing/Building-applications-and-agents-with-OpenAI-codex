@@ -38,7 +38,7 @@ Read the smallest reference needed for the current task:
 - `references/testing-patterns.md` for local tests, API-backed smoke tests, and
   evals.
 - `references/course-lab-patterns.md` for reusable implementation knowledge
-  preserved from Labs 01-05, including sampler, handoffs, SandboxAgent,
+  preserved from Labs 01 and 002-005, including sampler, handoffs, SandboxAgent,
   SQL analyzer, and voice/realtime lab choices.
 
 ## Official Sources

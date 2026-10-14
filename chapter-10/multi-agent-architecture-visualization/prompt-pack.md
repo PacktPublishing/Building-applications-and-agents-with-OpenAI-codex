@@ -19,7 +19,7 @@ the agents or call the API.
 
 ```text
 Add an exporter using `draw_graph` from `agents.extensions.visualization`.
-Install the `openai-agents[viz]` extra. The script should generate a PNG at
+Install the `openai-agents[viz]` extra, version 0.23.1 or newer. The script should generate a PNG at
 outputs/multi-agent-handoffs.png (create the output directory), print its
 absolute path, and accept an optional output path. Use draw_graph's filename
 argument and account for its behavior of adding the `.png` extension. Document

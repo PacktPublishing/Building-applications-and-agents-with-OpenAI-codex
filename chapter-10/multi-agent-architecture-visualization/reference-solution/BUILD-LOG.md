@@ -18,3 +18,8 @@
 - Inspected the generated diagram: it shows the start node, all three agents,
   both directed handovers, and the end node.
 - No model/API calls are needed for export or tests.
+
+## SDK 0.23.1 update
+
+- Raised the OpenAI Agents SDK floor to `openai-agents>=0.23.1` (resolved
+  0.23.1 with `openai` 3.31.0). Offline tests pass; live API tests were not rerun.

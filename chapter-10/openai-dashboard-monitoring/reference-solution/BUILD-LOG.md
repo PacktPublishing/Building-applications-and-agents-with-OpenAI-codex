@@ -14,3 +14,8 @@
 - `uv run --with pytest --with pytest-asyncio --with openai-agents --with 'mcp>=1.19,<2' pytest -q`: **5 passed, 1 skipped**. The skipped API integration test requires `OPENAI_API_KEY`.
 - The same dependency-scoped `uv run ... python run_reference.py` command printed the expected clean skip because `OPENAI_API_KEY` is absent.
 - Live API run was not performed as part of local verification.
+
+## SDK 0.23.1 update
+
+- Raised the OpenAI Agents SDK floor to `openai-agents>=0.23.1` (resolved
+  0.23.1 with `openai` 3.31.0). Offline tests pass; live API tests were not rerun.

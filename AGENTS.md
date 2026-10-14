@@ -9,10 +9,12 @@ Expected structure:
 ```text
 lab-00-codex-workflow/
 lab-01-agent-basics/
-lab-02-handoffs-patterns/
-lab-03-sandboxagent-sampler/
-lab-04-sql-analyzer/
-lab-05-realtime-voice-agent/
+lab-02-vector-store/
+lab-03-code-interpreter/
+lab-002-handoffs-patterns/
+lab-003-sandboxagent-sampler/
+lab-004-sql-analyzer/
+lab-005-realtime-voice-agent/
 chapter-10/
   openai-dashboard-monitoring/
 replay-environment/
@@ -27,7 +29,7 @@ replay-environment/
 When carving this folder out into a dedicated repository, include:
 
 - `AGENTS.md`
-- `lab-00-*` through `lab-05-*`
+- all `lab-*` folders
 - `replay-environment/`
 - repository-level guides such as `README.md`, `prompts-index.md`,
   `run-reference-guide.md`, and `reference-test-guide.md`
@@ -55,9 +57,11 @@ Each `reference-solution/` should contain:
 - Use the OpenAI Agents SDK directly. Do not hide the SDK behind
   course-specific framework abstractions such as custom runner, workflow, or
   base-agent layers.
+- Require OpenAI Agents SDK `openai-agents>=0.23.1` in every lab's
+  `pyproject.toml` or `requirements.txt`; exact pins must be 0.23.1 or newer.
 - Lab 00 is Codex workflow only.
-- Labs 01-02 and 04-05 use SDK `Agent` objects.
-- Lab 03 uses SDK `SandboxAgent`.
+- Labs 01-03, 002, and 004-005 use SDK `Agent` objects.
+- Lab 003 uses SDK `SandboxAgent`.
 - Keep important SDK objects visible in the labs: `Agent`, `SandboxAgent`,
   `Runner`, `RunConfig`, `SandboxRunConfig`, tools, handoffs, guardrails,
   sessions, `RunState`, tracing, and tracing metadata.
@@ -152,7 +156,7 @@ Lab 01:
   function tools, guardrails, and sessions.
 - Runnable demos should print `final_output` and show useful run artifacts.
 
-Lab 02:
+Lab 002:
 
 - Include both handoffs and agents-as-tools variants.
 - Handoff examples must use real SDK `handoffs=[...]`.
@@ -160,7 +164,7 @@ Lab 02:
 - Runners should print final output, `last_agent`, and captured tool outputs
   where relevant.
 
-Lab 03:
+Lab 003:
 
 - Use SDK `SandboxAgent`.
 - Use Unix-local sandbox configuration unless the lab explicitly says otherwise:
@@ -171,7 +175,7 @@ Lab 03:
   so UnixLocal works in macOS permission-restricted folders.
 - Provide streamed progress output with `Runner.run_streamed` for the demo.
 
-Lab 04:
+Lab 004:
 
 - Use `Agent[SqlAnalyzerContext]` and pass the database dependency through
   `Runner.run(..., context=...)`.
@@ -185,7 +189,7 @@ Lab 04:
 - Instruct the agent to generate SQL without semicolons and to repair a
   semicolon-only validation failure by validating again before execution.
 
-Lab 05:
+Lab 005:
 
 - Keep the reusable text agent as a real SDK `Agent`.
 - Use the Python SDK `VoicePipeline` path for chained speech-to-text, agent
