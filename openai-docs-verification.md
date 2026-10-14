@@ -35,8 +35,8 @@ Verification date: 2026-05-29
 - Lab 01: first agent, tools, guardrails, sessions, structured output,
   `RunConfig`.
 - Lab 04: handoffs and agents-as-tools.
-- Lab 003: `SandboxAgent` with Unix-local `SandboxRunConfig`.
-- Lab 004: SQL analyzer Agent with read-only function tools, local context, and
+- Lab 08: `SandboxAgent` with Unix-local `SandboxRunConfig`.
+- Lab 09: SQL analyzer Agent with read-only function tools, local context, and
   structured output.
 - Lab 07: Python voice pipeline plus a separate browser realtime implementation
   using ephemeral client secrets.

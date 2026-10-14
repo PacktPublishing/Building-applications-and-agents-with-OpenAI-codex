@@ -25,8 +25,8 @@ def test_analysis_answer_contract_accepts_compact_result() -> None:
 
 def test_run_config_is_visible_sdk_object() -> None:
     run_config = build_run_config()
-    assert run_config.workflow_name == "lab-04-sql-analyzer"
-    assert run_config.trace_metadata["lab"] == "04"
+    assert run_config.workflow_name == "lab-09-sql-analyzer"
+    assert run_config.trace_metadata["lab"] == "09"
 
 
 def test_function_tool_schemas_hide_run_context() -> None:

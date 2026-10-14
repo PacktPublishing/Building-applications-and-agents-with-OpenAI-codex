@@ -21,8 +21,8 @@ README.md
 labs/
   lab-01-agent-basics/prompt-pack.md
   lab-04-handoffs-patterns/prompt-pack.md
-  lab-003-sandboxagent-sampler/prompt-pack.md
-  lab-004-sql-analyzer/prompt-pack.md
+  lab-08-sandboxagent-sampler/prompt-pack.md
+  lab-09-sql-analyzer/prompt-pack.md
 solutions/
 ```
 
@@ -95,7 +95,7 @@ Lab 04:
 - Print final output, `last_agent`, and captured specialist tool outputs where
   relevant.
 
-Lab 003:
+Lab 08:
 
 - Use SDK `SandboxAgent`.
 - Use Unix-local sandbox configuration:
@@ -104,7 +104,7 @@ Lab 003:
 - Prefer synthetic SDK `Dir` and `File` manifest entries for tiny lab repos.
 - Stream demo progress with `Runner.run_streamed`.
 
-Lab 004:
+Lab 09:
 
 - Use `Agent[SqlAnalyzerContext]`.
 - Pass the database dependency with `Runner.run(..., context=...)`.

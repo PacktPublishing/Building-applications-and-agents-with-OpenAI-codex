@@ -102,7 +102,7 @@ async def main(model: str) -> None:
     final_export = ARTIFACTS_ROOT / "memory-demo-workspace"
 
     first_result = await run_once(
-        agent, client, snapshot, manifest, FIRST_PROMPT, "lab-03-memory-demo-first"
+        agent, client, snapshot, manifest, FIRST_PROMPT, "lab-08-memory-demo-first"
     )
     require(await snapshot.restorable(), "First sandbox did not persist its LocalSnapshot.")
     snapshot_path = snapshot.base_path / f"{snapshot_id}.tar"
@@ -135,7 +135,7 @@ async def main(model: str) -> None:
             agent,
             SECOND_PROMPT,
             run_config=RunConfig(
-                workflow_name="lab-03-memory-demo-second",
+                workflow_name="lab-08-memory-demo-second",
                 group_id=str(uuid.uuid4()),
                 sandbox=SandboxRunConfig(session=second_sandbox),
             ),

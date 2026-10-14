@@ -32,7 +32,7 @@ handoffs, guardrails, tracing, or sandbox execution:
 ## Setup
 
 ```bash
-cd "Building-applications-and-agents-with-OpenAI-codex/lab-04-sql-analyzer/reference-solution"
+cd "Building-applications-and-agents-with-OpenAI-codex/lab-09-sql-analyzer/reference-solution"
 python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"

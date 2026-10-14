@@ -55,7 +55,7 @@ def build_unix_local_run_config() -> RunConfig:
     """Return a RunConfig that materializes this lab manifest with UnixLocal."""
     manifest = build_manifest()
     return RunConfig(
-        workflow_name="lab-03-sandboxagent-unix-local",
+        workflow_name="lab-08-sandboxagent-unix-local",
         sandbox=SandboxRunConfig(
             client=UnixLocalSandboxClient(),
             options=UnixLocalSandboxClientOptions(),

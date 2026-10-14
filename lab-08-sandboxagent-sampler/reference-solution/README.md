@@ -1,4 +1,4 @@
-# Lab 03: SandboxAgent Sampler
+# Lab 08: SandboxAgent Sampler
 
 This lab uses the OpenAI Agents SDK `SandboxAgent` to inspect and repair a
 small calculator repository mounted into a Unix-local sandbox. The manifest

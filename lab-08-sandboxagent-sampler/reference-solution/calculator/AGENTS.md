@@ -1,6 +1,6 @@
 # Calculator Repo Instructions
 
-This tiny repository is a debugging exercise for the Lab 03 SandboxAgent. It
+This tiny repository is a debugging exercise for the Lab 08 SandboxAgent. It
 provides addition, subtraction, multiplication, and division; multiplication
 contains the single intentional bug.
 

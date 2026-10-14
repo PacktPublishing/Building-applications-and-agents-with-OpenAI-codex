@@ -1,4 +1,4 @@
-# Lab 04: SQL Analyzer Agent
+# Lab 09: SQL Analyzer Agent
 
 ## Status
 

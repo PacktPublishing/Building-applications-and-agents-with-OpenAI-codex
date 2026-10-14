@@ -1,4 +1,4 @@
-"""Instructions for the Lab 03 calculator-debugging SandboxAgent."""
+"""Instructions for the Lab 08 calculator-debugging SandboxAgent."""
 
 SANDBOX_AGENT_INSTRUCTIONS = """
 You are debugging a tiny calculator repository mounted in the sandbox workspace

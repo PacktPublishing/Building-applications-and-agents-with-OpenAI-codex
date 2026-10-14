@@ -9,35 +9,35 @@ schemas, SDK object construction, `RunConfig`, and the UnixLocal SandboxAgent
 configuration.
 
 ```bash
-for d in Building-applications-and-agents-with-OpenAI-codex/lab-{00,01,04,07,003}-*/reference-solution; do
+for d in Building-applications-and-agents-with-OpenAI-codex/lab-{00,01,04,07,08}-*/reference-solution; do
   echo "== $d"
   (cd "$d" && uv run --with pytest pytest -q) || exit 1
 done
 
-cd Building-applications-and-agents-with-OpenAI-codex/lab-004-sql-analyzer/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-09-sql-analyzer/reference-solution
 uv run --with pytest pytest -q
 ```
 
 ## 2. OpenAI API Smoke Tests
 
-These tests call the OpenAI API for Labs 01, 04, 07, 003, and 004. Lab 006 uses a manual live exercise. Set `OPENAI_API_KEY` first.
+These tests call the OpenAI API for Labs 01, 04, 07, 08, and 09. Lab 006 uses a manual live exercise. Set `OPENAI_API_KEY` first.
 Set `REQUIRE_OPENAI_API=1` so missing credentials fail instead of skipping.
 
 ```bash
 export OPENAI_API_KEY="sk-..."
 export REQUIRE_OPENAI_API=1
 
-for d in Building-applications-and-agents-with-OpenAI-codex/lab-{01,04,07,003}-*/reference-solution; do
+for d in Building-applications-and-agents-with-OpenAI-codex/lab-{01,04,07,08}-*/reference-solution; do
   echo "== $d"
   (cd "$d" && uv run --with pytest pytest -q tests/test_openai_integration.py) || exit 1
 done
 
-cd Building-applications-and-agents-with-OpenAI-codex/lab-004-sql-analyzer/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-09-sql-analyzer/reference-solution
 uv run --with pytest pytest -q
 ```
 
-Lab 004 includes an API-backed test in
-`lab-004-sql-analyzer/reference-solution`; it skips only when `OPENAI_API_KEY`
+Lab 09 includes an API-backed test in
+`lab-09-sql-analyzer/reference-solution`; it skips only when `OPENAI_API_KEY`
 is absent.
 
 ## What This Proves
@@ -46,7 +46,7 @@ is absent.
   logic is reliable.
 - OpenAI API smoke tests prove each SDK lab actually reaches OpenAI through
   `Runner.run(...)`.
-- Lab 003 proves the SandboxAgent path reaches OpenAI while using UnixLocal
+- Lab 08 proves the SandboxAgent path reaches OpenAI while using UnixLocal
   `SandboxRunConfig`.
 
 ## Lab 02 vector store checks

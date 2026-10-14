@@ -137,10 +137,10 @@ npm run dev
 
 Open the HTTPS Vite URL and start the realtime session in the browser.
 
-## Lab 003
+## Lab 08
 
 ```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-003-sandboxagent-sampler/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-08-sandboxagent-sampler/reference-solution
 uv run python run_sandbox_demo.py
 ```
 
@@ -153,10 +153,10 @@ To run without streaming progress:
 uv run python run_sandbox_demo.py --no-stream
 ```
 
-## Lab 004
+## Lab 09
 
 ```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-004-sql-analyzer/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-09-sql-analyzer/reference-solution
 uv run python run_reference.py
 ```
 

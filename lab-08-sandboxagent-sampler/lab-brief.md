@@ -1,4 +1,4 @@
-# Lab 03: SandboxAgent Capability Sampler
+# Lab 08: SandboxAgent Capability Sampler
 
 ## Goal
 

@@ -1,4 +1,4 @@
-# Build Log: Lab 03 SandboxAgent Sampler
+# Build Log: Lab 08 SandboxAgent Sampler
 
 ## Prompt steps
 
@@ -23,8 +23,8 @@
 ## Verification
 
 - `python -m py_compile` on the lab's Python files: passed.
-- `python -m pytest -q tests` in the solution directory using the Lab 05
-  virtual environment: passed (4 tests).
+- `python -m pytest -q tests` in the solution directory using the realtime voice
+  lab's virtual environment: passed (4 tests).
 - `python check_manifest.py`: passed; relative manifest and seeded Memory
   configuration validated.
 - `python -m py_compile sandbox_manifest.py sandbox_instructions.py
@@ -36,3 +36,11 @@
 
 - Raised the OpenAI Agents SDK floor to `openai-agents>=0.23.1` (resolved
   0.23.1 with `openai` 3.31.0). Offline tests pass; live API tests were not rerun.
+
+## Renumbering — Lab 03 to Lab 08
+
+- Renamed `lab-03-sandboxagent-sampler/` (temporarily
+  `lab-003-sandboxagent-sampler/`) to `lab-08-sandboxagent-sampler/`, and the
+  replay prompt pack folder to `replay-environment/labs/lab-08-sandboxagent-sampler/`.
+- Updated titles, `workflow_name` values, instructions, the calculator repo's
+  AGENTS.md, prompt packs, and repository-level guides to Lab 08.

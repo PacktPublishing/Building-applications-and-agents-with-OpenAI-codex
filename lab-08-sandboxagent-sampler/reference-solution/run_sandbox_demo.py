@@ -91,7 +91,7 @@ async def main() -> None:
     )
     workspace_root = Path(sandbox.state.manifest.root)
     run_config = RunConfig(
-        workflow_name="lab-03-sandboxagent-unix-local",
+        workflow_name="lab-08-sandboxagent-unix-local",
         sandbox=SandboxRunConfig(session=sandbox),
     )
     try:

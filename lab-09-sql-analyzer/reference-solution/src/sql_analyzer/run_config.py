@@ -11,6 +11,6 @@ except ImportError as exc:  # pragma: no cover - exercised only before dependenc
 
 def build_run_config() -> RunConfig:
     return RunConfig(
-        workflow_name="lab-04-sql-analyzer",
-        trace_metadata={"lab": "04", "course": "mastering-openai-agents"},
+        workflow_name="lab-09-sql-analyzer",
+        trace_metadata={"lab": "09", "course": "mastering-openai-agents"},
     )

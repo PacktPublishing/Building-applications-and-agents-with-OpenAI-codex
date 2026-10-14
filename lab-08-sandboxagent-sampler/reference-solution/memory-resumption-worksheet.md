@@ -1,4 +1,4 @@
-# Lab 03: Resume with file-based memory
+# Lab 08: Resume with file-based memory
 
 ## Goal
 

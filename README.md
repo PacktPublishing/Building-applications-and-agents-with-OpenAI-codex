@@ -7,7 +7,7 @@ Codex is the construction partner. OpenAI Agents and SandboxAgents are the
 subject matter.
 
 The reference implementations are SDK-first: Lab 00 teaches Codex workflow,
-Labs 01-07, 004, and 006 use direct OpenAI Agents SDK `Agent` flows, and Lab 003 uses
+Labs 01-07, 09, and 006 use direct OpenAI Agents SDK `Agent` flows, and Lab 08 uses
 direct SDK `SandboxAgent` with Unix-local `SandboxRunConfig`.
 
 All text-based Agent and SandboxAgent references explicitly default to
@@ -66,8 +66,8 @@ See its reference README for setup.
 | 05 | [Monitor Agent Runs in the OpenAI Dashboard](lab-05-openai-dashboard-monitoring/lab-brief.md) | Connect two local mock MCP tools and group related agent traces with a shared `group_id` |
 | 06 | [Visualize a Multi-Agent Handoff Architecture](lab-06-multi-agent-architecture-visualization/lab-brief.md) | Draw two successive SDK handoffs and export a PNG with `openai-agents[viz]` |
 | 07 | Realtime Voice Agent | Compare Python voice pipelines with browser realtime sessions |
-| 003 | SandboxAgent Sampler | Show workspace, shell, skills, memory, and resumption |
-| 004 | SQL Analyzer Agent | First full business reference solution |
+| 08 | SandboxAgent Sampler | Show workspace, shell, skills, memory, and resumption |
+| 09 | SQL Analyzer Agent | First full business reference solution |
 | [006](lab-006-repl/lab-brief.md) | Interactive Agent REPL | Test conversation history and streaming in a terminal |
 
 ## Reproducible Prompts
@@ -89,9 +89,9 @@ without running pytest.
 
 ## Recommended Build Order
 
-1. Use Labs 00-01, 04, and 003 before Lab 004 so you see Codex workflow,
+1. Use Labs 00-01, 04, and 08 before Lab 09 so you see Codex workflow,
    Agents SDK primitives, orchestration, and SandboxAgent concepts first.
-2. Use Lab 004 as the first full business reference solution.
+2. Use Lab 09 as the first full business reference solution.
 3. Use Lab 07 after you understand normal `Agent` objects; the voice lab
    reuses those objects in Python voice and browser realtime architectures.
 

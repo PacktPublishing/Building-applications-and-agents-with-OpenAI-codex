@@ -1,4 +1,7 @@
-# Prompt Pack: Lab 03
+# Prompt Pack: Lab 08
+
+
+Default all SDK Agent/SandboxAgent model settings to `gpt-6-luna`. Keep modality-specific transcription, speech, and realtime audio model IDs unchanged.
 
 ## Prompt 1
 

@@ -15,8 +15,8 @@ lab-04-handoffs-patterns/
 lab-05-openai-dashboard-monitoring/
 lab-06-multi-agent-architecture-visualization/
 lab-07-realtime-voice-agent/
-lab-003-sandboxagent-sampler/
-lab-004-sql-analyzer/
+lab-08-sandboxagent-sampler/
+lab-09-sql-analyzer/
 replay-environment/
   .agents/
     skills/
@@ -60,8 +60,8 @@ Each `reference-solution/` should contain:
 - Require OpenAI Agents SDK `openai-agents>=0.23.1` in every lab's
   `pyproject.toml` or `requirements.txt`; exact pins must be 0.23.1 or newer.
 - Lab 00 is Codex workflow only.
-- Labs 01-07 and 004 use SDK `Agent` objects.
-- Lab 003 uses SDK `SandboxAgent`.
+- Labs 01-07 and 09 use SDK `Agent` objects.
+- Lab 08 uses SDK `SandboxAgent`.
 - Keep important SDK objects visible in the labs: `Agent`, `SandboxAgent`,
   `Runner`, `RunConfig`, `SandboxRunConfig`, tools, handoffs, guardrails,
   sessions, `RunState`, tracing, and tracing metadata.
@@ -74,8 +74,8 @@ Each `reference-solution/` should contain:
   without making model calls.
 
 Keep every lab at the repository root as `lab-<number>-<topic>/`. Folders with
-three-digit numbers (`lab-003-*` to `lab-006-*`) carry temporary numbers until
-the ongoing renumbering assigns their final two-digit lab number.
+three-digit numbers (currently `lab-006-repl/`) carry a temporary number until
+the ongoing renumbering assigns its final two-digit lab number.
 
 ## Skill And SDK Reference
 
@@ -164,7 +164,7 @@ Lab 04:
 - Runners should print final output, `last_agent`, and captured tool outputs
   where relevant.
 
-Lab 003:
+Lab 08:
 
 - Use SDK `SandboxAgent`.
 - Use Unix-local sandbox configuration unless the lab explicitly says otherwise:
@@ -175,7 +175,7 @@ Lab 003:
   so UnixLocal works in macOS permission-restricted folders.
 - Provide streamed progress output with `Runner.run_streamed` for the demo.
 
-Lab 004:
+Lab 09:
 
 - Use `Agent[SqlAnalyzerContext]` and pass the database dependency through
   `Runner.run(..., context=...)`.

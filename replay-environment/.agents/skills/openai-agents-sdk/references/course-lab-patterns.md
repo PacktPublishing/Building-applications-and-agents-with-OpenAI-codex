@@ -1,4 +1,4 @@
-# Course Lab Patterns From Labs 01, 04, 07, 003, and 004
+# Course Lab Patterns From Labs 01, 04, 07, 08, and 09
 
 Use these notes when rebuilding or extending the course labs. They preserve
 reference-level implementation decisions that are easy to lose during replay.
@@ -37,7 +37,7 @@ Teach both orchestration patterns explicitly:
   manager, `Agent.as_tool(...)` outputs are in manager tools, and `Runner.run`
   receives `RunConfig`.
 
-## Lab 003: SandboxAgent Sampler
+## Lab 08: SandboxAgent Sampler
 
 Use `SandboxAgent` only when workspace-native execution is the teaching goal:
 files, shell commands, skills, memory, artifacts, or resumable sandbox state.
@@ -73,7 +73,7 @@ Sandbox memory guidance:
   memory files and local tests for capability/configuration. Do not make a
   required two-run API-backed memory test unless the lab explicitly asks for it.
 
-## Lab 004: SQL Analyzer Agent
+## Lab 09: SQL Analyzer Agent
 
 Keep database work deterministic and local until the agent layer:
 
