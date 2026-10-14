@@ -37,7 +37,7 @@ export function buildClientSecretRequest(apiKey: string, safetyIdentifier: strin
 }
 
 export function localSafetyIdentifier(): string {
-  return createHash("sha256").update("lab-05-realtime-browser-local-demo").digest("hex");
+  return createHash("sha256").update("lab-07-realtime-browser-local-demo").digest("hex");
 }
 
 export async function createClientSecret(

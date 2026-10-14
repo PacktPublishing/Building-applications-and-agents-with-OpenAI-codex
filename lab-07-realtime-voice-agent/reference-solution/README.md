@@ -1,4 +1,4 @@
-# Lab 05: Realtime Voice Agent
+# Lab 07: Realtime Voice Agent
 
 This project is the Python scaffold for the voice-agent lab. Its Python path
 will reuse a text agent through the OpenAI Agents SDK `VoicePipeline`: audio is

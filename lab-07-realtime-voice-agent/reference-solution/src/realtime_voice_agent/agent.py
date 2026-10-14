@@ -28,7 +28,7 @@ def lookup_answer(topic: str) -> str:
 
 
 def build_voice_agent() -> Agent:
-    """Build the Lab 05 voice assistant as a real Agents SDK Agent."""
+    """Build the Lab 07 voice assistant as a real Agents SDK Agent."""
     return Agent(
         name="voice_course_assistant",
         instructions=(

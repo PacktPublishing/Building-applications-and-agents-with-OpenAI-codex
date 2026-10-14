@@ -1,4 +1,4 @@
-# Lab 05 Brief: Realtime Voice Agent
+# Lab 07 Brief: Realtime Voice Agent
 
 ## Goal
 

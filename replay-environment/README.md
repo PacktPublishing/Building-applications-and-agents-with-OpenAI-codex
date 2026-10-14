@@ -10,7 +10,7 @@ It intentionally contains reusable context, not finished reference solutions.
 - `.agents/skills/openai-agents-sdk/openai-agents-python/`: submodule pointing
   to the official `openai/openai-agents-python` repository for examples, tests,
   and docs.
-- `labs/*/prompt-pack.md`: prompt packs for Labs 01-06 and 003-006.
+- `labs/*/prompt-pack.md`: prompt packs for Labs 01-07, 003, 004, and 006.
 - [Lab 02 vector store prompt pack](labs/lab-02-vector-store/prompt-pack.md): document ingestion, hosted search, citations, and cleanup after Lab 01.
 - [Lab 03 Code Interpreter prompt pack](labs/lab-03-code-interpreter/prompt-pack.md): a synthetic CSV becomes a downloadable diagram through hosted Python execution.
 - [Lab 05 monitoring prompt pack](labs/lab-05-openai-dashboard-monitoring/prompt-pack.md): a local MCP-backed agent creates grouped traces for dashboard inspection.
@@ -40,12 +40,12 @@ After updating the SDK pin, rerun the local lab tests before sharing changes.
 Start a new Codex task from this `replay-environment` folder and use one lab
 prompt pack at a time.
 
-Example for Lab 005:
+Example for Lab 07:
 
 ```text
-Use labs/lab-005-realtime-voice-agent/prompt-pack.md.
+Use labs/lab-07-realtime-voice-agent/prompt-pack.md.
 Follow the prompts in order.
-Create the implementation in solutions/lab-005-realtime-voice-agent.
+Create the implementation in solutions/lab-07-realtime-voice-agent.
 Do not inspect or copy from any reference-solution folder outside this replay
 environment.
 Use AGENTS.md, the openai-agents-sdk Skill, and the skill-local

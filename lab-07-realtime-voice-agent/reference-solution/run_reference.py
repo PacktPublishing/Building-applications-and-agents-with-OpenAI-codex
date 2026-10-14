@@ -1,4 +1,4 @@
-"""Project-level entry point for the Lab 05 package CLI."""
+"""Project-level entry point for the Lab 07 package CLI."""
 
 from realtime_voice_agent.cli import main
 

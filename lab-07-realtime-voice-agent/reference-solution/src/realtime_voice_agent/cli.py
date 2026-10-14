@@ -22,7 +22,7 @@ from .voice import (
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Run the Lab 05 Python voice pipeline demo.")
+    parser = argparse.ArgumentParser(description="Run the Lab 07 Python voice pipeline demo.")
     parser.add_argument(
         "--seconds", type=float, default=1.0, help="Static input audio length in seconds."
     )

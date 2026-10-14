@@ -17,8 +17,8 @@ from agents.voice import (
 
 
 SAMPLE_RATE = 24_000
-WORKFLOW_NAME = "lab-05-realtime-voice-agent"
-TRACE_METADATA = {"lab": "05", "component": "python_voice_pipeline"}
+WORKFLOW_NAME = "lab-07-realtime-voice-agent"
+TRACE_METADATA = {"lab": "07", "component": "python_voice_pipeline"}
 
 
 @dataclass

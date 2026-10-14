@@ -9,7 +9,7 @@ schemas, SDK object construction, `RunConfig`, and the UnixLocal SandboxAgent
 configuration.
 
 ```bash
-for d in Building-applications-and-agents-with-OpenAI-codex/lab-{00,01,04,003,005}-*/reference-solution; do
+for d in Building-applications-and-agents-with-OpenAI-codex/lab-{00,01,04,07,003}-*/reference-solution; do
   echo "== $d"
   (cd "$d" && uv run --with pytest pytest -q) || exit 1
 done
@@ -20,14 +20,14 @@ uv run --with pytest pytest -q
 
 ## 2. OpenAI API Smoke Tests
 
-These tests call the OpenAI API for Labs 01, 04, and 003–005. Lab 006 uses a manual live exercise. Set `OPENAI_API_KEY` first.
+These tests call the OpenAI API for Labs 01, 04, 07, 003, and 004. Lab 006 uses a manual live exercise. Set `OPENAI_API_KEY` first.
 Set `REQUIRE_OPENAI_API=1` so missing credentials fail instead of skipping.
 
 ```bash
 export OPENAI_API_KEY="sk-..."
 export REQUIRE_OPENAI_API=1
 
-for d in Building-applications-and-agents-with-OpenAI-codex/lab-{01,04,003,005}-*/reference-solution; do
+for d in Building-applications-and-agents-with-OpenAI-codex/lab-{01,04,07,003}-*/reference-solution; do
   echo "== $d"
   (cd "$d" && uv run --with pytest pytest -q tests/test_openai_integration.py) || exit 1
 done

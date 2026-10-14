@@ -99,3 +99,11 @@
 
 - Raised the OpenAI Agents SDK floor to `openai-agents>=0.23.1` (resolved
   0.23.1 with `openai` 3.31.0). Offline tests pass; live API tests were not rerun.
+
+## Renumbering — Lab 05 to Lab 07
+
+- Renamed `lab-05-realtime-voice-agent/` (temporarily `lab-005-realtime-voice-agent/`)
+  to `lab-07-realtime-voice-agent/`, and the replay prompt pack folder to
+  `replay-environment/labs/lab-07-realtime-voice-agent/`.
+- Updated titles, `workflow_name`, trace metadata, the browser package name and
+  page title, tests, prompt packs, and repository-level guides to Lab 07.

@@ -65,7 +65,7 @@ def test_voice_pipeline_configuration_and_real_sdk_types() -> None:
     assert isinstance(pipeline, VoicePipeline)
     assert isinstance(pipeline.workflow, SingleAgentVoiceWorkflow)
     assert pipeline.workflow._callbacks is capture
-    assert pipeline.config.workflow_name == "lab-05-realtime-voice-agent"
+    assert pipeline.config.workflow_name == "lab-07-realtime-voice-agent"
     assert pipeline.config.trace_metadata == TRACE_METADATA
     assert pipeline.config.trace_include_sensitive_audio_data is False
 

@@ -1,6 +1,6 @@
 # Browser Realtime voice agent
 
-This is a sibling JavaScript implementation of Lab 05. It uses the TypeScript
+This is a sibling JavaScript implementation of Lab 07. It uses the TypeScript
 Agents SDK `RealtimeAgent` and `RealtimeSession` to keep a live WebRTC session
 open; the model handles the speech-to-speech conversation directly. This is a
 different architecture from the Python `VoicePipeline`, which chains

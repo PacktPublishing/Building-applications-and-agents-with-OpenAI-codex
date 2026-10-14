@@ -103,6 +103,40 @@ This makes no API calls and writes `outputs/multi-agent-handoffs.png`. Install
 the native Graphviz executable first; see the
 [lab README](lab-06-multi-agent-architecture-visualization/reference-solution/README.md).
 
+## Lab 07
+
+Python voice pipeline:
+
+```bash
+cd Building-applications-and-agents-with-OpenAI-codex/lab-07-realtime-voice-agent/reference-solution
+uv run python run_reference.py --seconds 1
+```
+
+Without `OPENAI_API_KEY`, the voice demo skips cleanly. With a key, it runs a
+static `AudioInput` through the SDK `VoicePipeline` and prints lifecycle/audio
+stream summaries.
+
+True browser realtime agent:
+
+```bash
+cd Building-applications-and-agents-with-OpenAI-codex/lab-07-realtime-voice-agent/reference-solution/realtime-browser
+npm install
+npm test
+npm run typecheck
+npm run build
+export OPENAI_API_KEY="sk-..."
+npm run server
+```
+
+In another terminal:
+
+```bash
+cd Building-applications-and-agents-with-OpenAI-codex/lab-07-realtime-voice-agent/reference-solution/realtime-browser
+npm run dev
+```
+
+Open the HTTPS Vite URL and start the realtime session in the browser.
+
 ## Lab 003
 
 ```bash
@@ -127,40 +161,6 @@ uv run python run_reference.py
 ```
 
 Use the SQL Analyzer README for CLI options and custom questions.
-
-## Lab 005
-
-Python voice pipeline:
-
-```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-005-realtime-voice-agent/reference-solution
-uv run python run_reference.py --seconds 1
-```
-
-Without `OPENAI_API_KEY`, the voice demo skips cleanly. With a key, it runs a
-static `AudioInput` through the SDK `VoicePipeline` and prints lifecycle/audio
-stream summaries.
-
-True browser realtime agent:
-
-```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-005-realtime-voice-agent/reference-solution/realtime-browser
-npm install
-npm test
-npm run typecheck
-npm run build
-export OPENAI_API_KEY="sk-..."
-npm run server
-```
-
-In another terminal:
-
-```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-005-realtime-voice-agent/reference-solution/realtime-browser
-npm run dev
-```
-
-Open the HTTPS Vite URL and start the realtime session in the browser.
 
 ## Lab 006
 

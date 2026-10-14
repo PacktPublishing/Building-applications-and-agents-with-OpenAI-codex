@@ -1,4 +1,4 @@
-# Course Lab Patterns From Labs 01, 04, and 003-005
+# Course Lab Patterns From Labs 01, 04, 07, 003, and 004
 
 Use these notes when rebuilding or extending the course labs. They preserve
 reference-level implementation decisions that are easy to lose during replay.
@@ -108,7 +108,7 @@ Keep database work deterministic and local until the agent layer:
   validation before execution, SQL without semicolons, semicolon repair by
   validating again, business-language explanation, and caveats.
 
-## Lab 005: Voice And Realtime Agent
+## Lab 07: Voice And Realtime Agent
 
 Keep Python voice and browser realtime as separate architectures:
 

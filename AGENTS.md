@@ -14,9 +14,9 @@ lab-03-code-interpreter/
 lab-04-handoffs-patterns/
 lab-05-openai-dashboard-monitoring/
 lab-06-multi-agent-architecture-visualization/
+lab-07-realtime-voice-agent/
 lab-003-sandboxagent-sampler/
 lab-004-sql-analyzer/
-lab-005-realtime-voice-agent/
 replay-environment/
   .agents/
     skills/
@@ -60,7 +60,7 @@ Each `reference-solution/` should contain:
 - Require OpenAI Agents SDK `openai-agents>=0.23.1` in every lab's
   `pyproject.toml` or `requirements.txt`; exact pins must be 0.23.1 or newer.
 - Lab 00 is Codex workflow only.
-- Labs 01-06 and 004-005 use SDK `Agent` objects.
+- Labs 01-07 and 004 use SDK `Agent` objects.
 - Lab 003 uses SDK `SandboxAgent`.
 - Keep important SDK objects visible in the labs: `Agent`, `SandboxAgent`,
   `Runner`, `RunConfig`, `SandboxRunConfig`, tools, handoffs, guardrails,
@@ -189,7 +189,7 @@ Lab 004:
 - Instruct the agent to generate SQL without semicolons and to repair a
   semicolon-only validation failure by validating again before execution.
 
-Lab 005:
+Lab 07:
 
 - Keep the reusable text agent as a real SDK `Agent`.
 - Use the Python SDK `VoicePipeline` path for chained speech-to-text, agent

@@ -1,16 +1,13 @@
-# Lab 05 Prompt Pack: Realtime Voice Agent
+# Lab 07 Prompt Pack: Realtime Voice Agent
 
-
-Default all SDK Agent/SandboxAgent model settings to `gpt-6-luna`. Keep modality-specific transcription, speech, and realtime audio model IDs unchanged.
-
-Use this prompt pack to rebuild the Lab 05 reference solution from scratch in
-`lab-05-realtime-voice-agent/reference-solution/`.
+Use this prompt pack to rebuild the Lab 07 reference solution from scratch in
+`solutions/lab-07-realtime-voice-agent/`.
 
 Before starting, read:
 
 - `AGENTS.md`
-- `replay-environment/.agents/skills/openai-agents-sdk/SKILL.md`
-- `replay-environment/.agents/skills/openai-agents-sdk/openai-agents-python/examples/voice/`
+- `.agents/skills/openai-agents-sdk/SKILL.md`
+- `.agents/skills/openai-agents-sdk/openai-agents-python/examples/voice/`
 
 Use the OpenAI Docs MCP to verify current guidance for Python voice agents.
 Record the official URLs and the guidance you relied on in the generated
@@ -67,7 +64,7 @@ Preserve these behavior requirements when rebuilding or revising the lab:
 
 ## Prompt 1: Scaffold The Python Project
 
-Create a Python project in `lab-05-realtime-voice-agent/reference-solution/`.
+Create a Python project in `solutions/lab-07-realtime-voice-agent/`.
 
 Requirements:
 
@@ -120,7 +117,7 @@ Requirements:
 - Use SDK `AudioInput`, `VoicePipeline`, `VoicePipelineConfig`,
   `SingleAgentVoiceWorkflow`, and `SingleAgentWorkflowCallbacks`.
 - Define `build_voice_pipeline()` that returns a real SDK `VoicePipeline`.
-- Configure `workflow_name="lab-05-realtime-voice-agent"` and trace metadata.
+- Configure `workflow_name="lab-07-realtime-voice-agent"` and trace metadata.
 - Add a `TranscriptCapture` callback that records transcriptions locally.
 - Add `make_silence_audio()` that returns a static `AudioInput` using a
   deterministic NumPy `int16` buffer.
@@ -176,36 +173,18 @@ Verification:
 - Run the local tests.
 - If no API key is available, run the demo and verify that it skips cleanly.
 
-## Prompt 5: Finalize Lab Materials
 
-Finalize the lab for replay.
-
-Requirements:
-
-- Update `README.md` with setup, test, demo, and tracing instructions.
-- Update `BUILD-LOG.md` with each prompt ID and verification result.
-- Keep the lab-level `labs/lab-05-realtime-voice-agent/prompt-pack.md`
-  complete enough for replay; it must not rely on reading inside a
-  `reference-solution/`.
-- Use direct SDK objects. Do not hide the SDK behind course-specific runner,
-  workflow, or base-agent abstractions.
-
-Verification:
-
-- Run all local tests.
-- Confirm the API-backed demo skips cleanly without `OPENAI_API_KEY`.
-
-## Prompt 6: Add The True Realtime Browser Agent
+## Prompt 5: Add The True Realtime Browser Agent
 
 Add a sibling reference implementation in
-`lab-05-realtime-voice-agent/reference-solution/realtime-browser/`.
+`solutions/lab-07-realtime-voice-agent/realtime-browser/`.
 
 Requirements:
 
 - Use the TypeScript OpenAI Agents SDK package `@openai/agents`.
 - Use SDK `RealtimeAgent` and `RealtimeSession` from
   `@openai/agents/realtime`.
-- Use model `gpt-realtime-2`.
+- Use model `gpt-realtime-2.1`.
 - Use a function-call-safe realtime agent name such as
   `realtime_course_assistant`.
 - Add a browser UI that starts and stops a realtime session, requests
@@ -213,6 +192,7 @@ Requirements:
 - The browser UI should log useful runtime events, including `You said: ...`,
   `Assistant said: ...`, `Assistant audio started`, and `Realtime turn
   complete`.
+- Configure realtime output modalities as ["audio"] only. Do not use ["audio", "text"].
 - The browser UI should suppress empty `You said:` lines and should not show
   every assistant transcript delta as a separate status entry.
 - Do not log every `history_updated` event; it produces noisy output and hides
@@ -240,7 +220,7 @@ Verification:
 - Run `npm run build`.
 - Do not call the OpenAI API in local tests.
 
-## Prompt 7: Polish Realtime Browser Runtime Behavior
+## Prompt 6: Polish Realtime Browser Runtime Behavior
 
 Verify the live browser runtime behavior.
 
@@ -271,8 +251,3 @@ Verification:
 - Run `npm test`.
 - Run `npm run typecheck`.
 - Run `npm run build`.
-- Manually run the browser app and confirm the status panel includes `You said:
-  ...` and `Assistant said: ...`.
-- During browser verification, ask a multi-turn sequence such as `Can you hear me?`,
-  `What is the capital of Germany?`, and `What is the capital of Slovenia?`.
-  Confirm each real user turn produces one visible completed assistant answer.

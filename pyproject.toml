@@ -36,5 +36,5 @@ members = [
   "lab-04-handoffs-patterns/reference-solution",
   "lab-003-sandboxagent-sampler/reference-solution",
   "lab-004-sql-analyzer/reference-solution",
-  "lab-005-realtime-voice-agent/reference-solution",
+  "lab-07-realtime-voice-agent/reference-solution",
 ]

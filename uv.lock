@@ -620,7 +620,7 @@ requires-dist = [
     { name = "agents-sdk-sampler", editable = "lab-01-agent-basics/reference-solution" },
     { name = "handoffs-patterns", editable = "lab-04-handoffs-patterns/reference-solution" },
     { name = "openai-agents", specifier = ">=0.23.1" },
-    { name = "realtime-voice-agent", editable = "lab-005-realtime-voice-agent/reference-solution" },
+    { name = "realtime-voice-agent", editable = "lab-07-realtime-voice-agent/reference-solution" },
     { name = "sql-analyzer-agent", editable = "lab-004-sql-analyzer/reference-solution" },
     { name = "text-stats", editable = "lab-00-codex-workflow/reference-solution" },
 ]
@@ -1031,7 +1031,7 @@ wheels = [
 [[package]]
 name = "realtime-voice-agent"
 version = "0.1.0"
-source = { editable = "lab-005-realtime-voice-agent/reference-solution" }
+source = { editable = "lab-07-realtime-voice-agent/reference-solution" }
 dependencies = [
     { name = "numpy" },
     { name = "openai-agents", extra = ["voice"] },
