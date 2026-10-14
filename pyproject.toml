@@ -34,7 +34,7 @@ members = [
   "lab-00-codex-workflow/reference-solution",
   "lab-01-agent-basics/reference-solution",
   "lab-04-handoffs-patterns/reference-solution",
-  "lab-08-sandboxagent-sampler/reference-solution",
+  "lab-08-sandboxagent/reference-solution",
   "lab-09-sql-analyzer/reference-solution",
   "lab-07-realtime-voice-agent/reference-solution",
 ]

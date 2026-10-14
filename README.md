@@ -26,7 +26,7 @@ The labs are numbered in the suggested order. Each title links to the lab brief.
 | 05 | [Monitor Agent Runs in the OpenAI Dashboard](lab-05-openai-dashboard-monitoring/lab-brief.md) | Connect two local mock MCP tools and group related agent traces with a shared `group_id` |
 | 06 | [Visualize a Multi-Agent Handoff Architecture](lab-06-multi-agent-architecture-visualization/lab-brief.md) | Draw two successive SDK handoffs and export a PNG with `openai-agents[viz]` |
 | 07 | [Realtime Voice Agent](lab-07-realtime-voice-agent/lab-brief.md) | Compare Python voice pipelines with browser realtime sessions |
-| 08 | [SandboxAgent Sampler](lab-08-sandboxagent-sampler/lab-brief.md) | Use a sandboxed workspace, shell, skills, memory, and resumption |
+| 08 | [SandboxAgent Sampler](lab-08-sandboxagent/lab-brief.md) | Use a sandboxed workspace, shell, skills, memory, and resumption |
 | 09 | [SQL Analyzer Agent](lab-09-sql-analyzer/lab-brief.md) | Build a full business reference solution with read-only SQL tools and run context |
 | 10 | [Interactive Agent REPL](lab-10-repl/lab-brief.md) | Test conversation history and streaming in a terminal |
 

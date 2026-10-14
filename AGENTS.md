@@ -15,7 +15,7 @@ lab-04-handoffs-patterns/
 lab-05-openai-dashboard-monitoring/
 lab-06-multi-agent-architecture-visualization/
 lab-07-realtime-voice-agent/
-lab-08-sandboxagent-sampler/
+lab-08-sandboxagent/
 lab-09-sql-analyzer/
 replay-environment/
   .agents/

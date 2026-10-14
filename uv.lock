@@ -1198,7 +1198,7 @@ wheels = [
 [[package]]
 name = "sandboxagent-sampler"
 version = "0.1.0"
-source = { virtual = "lab-08-sandboxagent-sampler/reference-solution" }
+source = { virtual = "lab-08-sandboxagent/reference-solution" }
 dependencies = [
     { name = "openai-agents" },
     { name = "python-dotenv" },

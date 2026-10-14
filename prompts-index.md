@@ -13,7 +13,7 @@ reference implementations.
 | 05 | [Monitor Agent Runs in the OpenAI Dashboard](lab-05-openai-dashboard-monitoring/prompt-pack.md) |
 | 06 | [Visualize a Multi-Agent Handoff Architecture](lab-06-multi-agent-architecture-visualization/prompt-pack.md) |
 | 07 | `lab-07-realtime-voice-agent/prompt-pack.md` |
-| 08 | `lab-08-sandboxagent-sampler/prompt-pack.md` |
+| 08 | `lab-08-sandboxagent/prompt-pack.md` |
 | 09 | `lab-09-sql-analyzer/prompt-pack.md` |
 | 10 | [Interactive Agent REPL](lab-10-repl/prompt-pack.md) |
 

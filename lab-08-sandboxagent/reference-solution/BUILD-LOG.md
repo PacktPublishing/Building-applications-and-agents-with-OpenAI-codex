@@ -44,3 +44,9 @@
   replay prompt pack folder to `replay-environment/labs/lab-08-sandboxagent-sampler/`.
 - Updated titles, `workflow_name` values, instructions, the calculator repo's
   AGENTS.md, prompt packs, and repository-level guides to Lab 08.
+
+## Folder rename — lab-08-sandboxagent
+
+- Renamed `lab-08-sandboxagent-sampler/` to `lab-08-sandboxagent/`, and the
+  replay prompt pack folder to `replay-environment/labs/lab-08-sandboxagent/`.
+  The lab number, title, and uv project name are unchanged.

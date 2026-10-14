@@ -140,7 +140,7 @@ Open the HTTPS Vite URL and start the realtime session in the browser.
 ## Lab 08
 
 ```bash
-cd Building-applications-and-agents-with-OpenAI-codex/lab-08-sandboxagent-sampler/reference-solution
+cd Building-applications-and-agents-with-OpenAI-codex/lab-08-sandboxagent/reference-solution
 uv run python run_sandbox_demo.py
 ```
 

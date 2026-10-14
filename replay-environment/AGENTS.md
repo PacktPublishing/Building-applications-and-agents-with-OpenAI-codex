@@ -21,7 +21,7 @@ README.md
 labs/
   lab-01-agent-basics/prompt-pack.md
   lab-04-handoffs-patterns/prompt-pack.md
-  lab-08-sandboxagent-sampler/prompt-pack.md
+  lab-08-sandboxagent/prompt-pack.md
   lab-09-sql-analyzer/prompt-pack.md
 solutions/
 ```
